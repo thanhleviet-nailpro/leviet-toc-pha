@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserPlus, Search, Calendar, MapPin, ChevronRight, ChevronDown, ChevronsDown, ChevronsUp, Landmark, BookOpen, Download, Home, Users, PhoneCall, Newspaper } from 'lucide-react';
-import { INITIAL_MEMBERS, FAMILY_INFO, REVISION_HISTORY, ANNUAL_NEWS, CONTACT_INFO } from './data';
+import { INITIAL_MEMBERS, FAMILY_INFO, REVISION_HISTORY, ANNUAL_NEWS, CONTACT_INFO, TEMPLE_RENOVATIONS } from './data';
 import MapModal from './MapModal';
 import MemberModals, { normalizeSpouses } from './MemberModals';
 import NewsModals from './NewsModals';
@@ -38,6 +38,69 @@ export default function App() {
   const [newsList, setNewsList] = useState(ANNUAL_NEWS);
   const [selectedNews, setSelectedNews] = useState(null);
   const [showAddNews, setShowAddNews] = useState(false);
+  const [revisions, setRevisions] = useState(REVISION_HISTORY);
+  const [revisionModal, setRevisionModal] = useState(null); // null | { mode: 'ADD' | 'EDIT', data?: object }
+  const [revForm, setRevForm] = useState({ id: null, date: '', author: '' });
+
+  const openAddRevision = () => {
+    setRevForm({ id: null, date: `Năm ${new Date().getFullYear()}`, author: '' });
+    setRevisionModal({ mode: 'ADD' });
+  };
+
+  const openEditRevision = (item) => {
+    setRevForm(item);
+    setRevisionModal({ mode: 'EDIT', data: item });
+  };
+
+  const handleSaveRevision = (e) => {
+    e.preventDefault();
+    if (!revForm.date.trim() || !revForm.author.trim()) return;
+    if (revisionModal && revisionModal.mode === 'EDIT') {
+      setRevisions((prev) => prev.map((r) => (r.id === revForm.id ? revForm : r)));
+    } else {
+      setRevisions((prev) => [...prev, { ...revForm, id: Date.now() }]);
+    }
+    setRevisionModal(null);
+  };
+
+  const handleDeleteRevision = (id) => {
+    if (window.confirm('Bạn có chắc chắn muốn xóa lần phụng tu này không?')) {
+      setRevisions((prev) => prev.filter((r) => r.id !== id));
+      setRevisionModal(null);
+    }
+  };
+
+  const [renovations, setRenovations] = useState(TEMPLE_RENOVATIONS);
+  const [renovationModal, setRenovationModal] = useState(null); // null | { mode: 'ADD' | 'EDIT', data?: object }
+  const [renoForm, setRenoForm] = useState({ id: null, year: '', title: '', detail: '' });
+
+  const openAddRenovation = () => {
+    setRenoForm({ id: null, year: `Năm ${new Date().getFullYear()}`, title: '', detail: '' });
+    setRenovationModal({ mode: 'ADD' });
+  };
+
+  const openEditRenovation = (item) => {
+    setRenoForm(item);
+    setRenovationModal({ mode: 'EDIT', data: item });
+  };
+
+  const handleSaveRenovation = (e) => {
+    e.preventDefault();
+    if (!renoForm.title.trim()) return;
+    if (renovationModal && renovationModal.mode === 'EDIT') {
+      setRenovations((prev) => prev.map((r) => (r.id === renoForm.id ? renoForm : r)));
+    } else {
+      setRenovations((prev) => [{ ...renoForm, id: Date.now() }, ...prev]);
+    }
+    setRenovationModal(null);
+  };
+
+  const handleDeleteRenovation = (id) => {
+    if (window.confirm('Bạn có chắc chắn muốn xóa đợt trùng tu này không?')) {
+      setRenovations((prev) => prev.filter((r) => r.id !== id));
+      setRenovationModal(null);
+    }
+  };
 
   const handleSaveNews = (item) => {
   const exists = newsList.some((n) => n.id === item.id);
@@ -131,7 +194,7 @@ export default function App() {
   };
 
   const handleExportData = () => {
-    const content = `export const FAMILY_INFO = ${JSON.stringify(FAMILY_INFO, null, 2)};\n\nexport const REVISION_HISTORY = ${JSON.stringify(REVISION_HISTORY, null, 2)};\n\nexport const ANNUAL_NEWS = ${JSON.stringify(newsList, null, 2)};\n\nexport const CONTACT_INFO = ${JSON.stringify(CONTACT_INFO, null, 2)};\n\nexport const INITIAL_MEMBERS = ${JSON.stringify(members, null, 2)};\n`;
+    const content = `export const FAMILY_INFO = ${JSON.stringify(FAMILY_INFO, null, 2)};\n\nexport const REVISION_HISTORY = ${JSON.stringify(revisions, null, 2)};\n\nexport const TEMPLE_RENOVATIONS = ${JSON.stringify(renovations, null, 2)};\n\nexport const ANNUAL_NEWS = ${JSON.stringify(newsList, null, 2)};\n\nexport const CONTACT_INFO = ${JSON.stringify(CONTACT_INFO, null, 2)};\n\nexport const INITIAL_MEMBERS = ${JSON.stringify(members, null, 2)};\n`;
     const blob = new Blob(Array.of(content), { type: 'text/javascript;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -451,23 +514,37 @@ export default function App() {
 
               <div
                 onClick={() => {
-                  const donatePost = newsList.find((n) => n.title.includes('Đóng góp')) || {
+                  const fullGratitudeText =
+                    'Hội đồng Gia tộc trân trọng khắc ghi và thành kính tri ân toàn thể con cháu nội ngoại, dâu rể gần xa đã hướng về cội nguồn, đồng tâm góp công, góp của tu bổ, tôn tạo Từ đường họ Lê Viết ngày càng khang trang, uy nghiêm.\n' +
+                    'Mỗi sự đóng góp, dù tịnh tài, vật lực hay công sức, đều là nghĩa cử cao đẹp, như nén tâm hương thành kính dâng lên Tiên tổ, thể hiện đạo lý “Uống nước nhớ nguồn”, lòng hiếu kính và tình đoàn kết dòng tộc.\n' +
+                    'Nguyện cầu hồng ân Tiên tổ phù hộ cho toàn thể gia tộc bình an, hưng thịnh, con cháu thuận hòa, hiếu nghĩa, phúc lộc trường tồn; để nghĩa tình và công đức hôm nay mãi được trân quý, lưu truyền đến các thế hệ mai sau.';
+
+                  const donatePost = newsList.find((n) => n.title.includes('Sổ Vàng') || n.title.includes('Đóng góp')) || {
                     id: 99,
                     date: 'Công đức & Tri ân',
-                    title: 'Đóng góp xây dựng Từ Đường',
-                    summary: 'Ghi nhận tấm lòng hảo tâm của con cháu nội ngoại gần xa chung tay đóng góp tu bổ, tôn tạo Từ đường họ Lê Viết ngày thêm khang trang.',
-                    content: 'Ghi nhận tấm lòng hảo tâm của con cháu nội ngoại gần xa chung tay đóng góp tu bổ, tôn tạo Từ đường họ Lê Viết ngày thêm khang trang.\n\n(Bấm "Sửa bài viết" ở góc trên để cập nhật danh sách bà con đóng góp)'
+                    title: 'Sổ Vàng công đức & Tri ân',
+                    summary: 'Hội đồng Gia tộc trân trọng khắc ghi và thành kính tri ân toàn thể con cháu nội ngoại, dâu rể gần xa đã hướng về cội nguồn, đồng tâm góp công, góp của tu bổ, tôn tạo Từ đường họ Lê Viết ngày càng khang trang, uy nghiêm.',
+                    content: fullGratitudeText
                   };
                   setSelectedNews(donatePost);
                 }}
                 className="memorial-item"
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <span style={{ fontWeight: '700', color: '#7c1d1d', fontSize: '15px' }}>Sổ Vàng công đức & Tri ân</span>
-                  <span style={{ fontSize: '12px', color: '#881313', fontWeight: '600' }}>Xem / Sửa →</span>
+                  <span style={{ fontSize: '12px', color: '#881313', fontWeight: '600' }}>Sửa →</span>
                 </div>
-                <div style={{ fontSize: '14px', color: '#475569', lineHeight: '1.6' }}>
-                  Ghi nhận tấm lòng hảo tâm của con cháu nội ngoại gần xa chung tay đóng góp tu bổ, tôn tạo Từ đường họ Lê Viết ngày thêm khang trang.
+
+                <div style={{ fontSize: '14px', color: '#334155', lineHeight: '1.6', textAlign: 'justify' }}>
+                  <p style={{ margin: 0, textIndent: '0.7cm' }}>
+                    Hội đồng Gia tộc trân trọng khắc ghi và thành kính tri ân toàn thể con cháu nội ngoại, dâu rể gần xa đã hướng về cội nguồn, đồng tâm góp công, góp của tu bổ, tôn tạo Từ đường họ Lê Viết ngày càng khang trang, uy nghiêm.
+                  </p>
+                  <p style={{ margin: 0, textIndent: '0.7cm' }}>
+                    Mỗi sự đóng góp, dù tịnh tài, vật lực hay công sức, đều là nghĩa cử cao đẹp, như nén tâm hương thành kính dâng lên Tiên tổ, thể hiện đạo lý “Uống nước nhớ nguồn”, lòng hiếu kính và tình đoàn kết dòng tộc.
+                  </p>
+                  <p style={{ margin: 0, textIndent: '0.7cm' }}>
+                    Nguyện cầu hồng ân Tiên tổ phù hộ cho toàn thể gia tộc bình an, hưng thịnh, con cháu thuận hòa, hiếu nghĩa, phúc lộc trường tồn; để nghĩa tình và công đức hôm nay mãi được trân quý, lưu truyền đến các thế hệ mai sau.
+                  </p>
                 </div>
               </div>
             </div>
@@ -653,30 +730,97 @@ export default function App() {
           </aside>
 
             <aside className="sidebar">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e2e8f0', paddingBottom: '12px', marginBottom: '12px' }}>
-            <BookOpen size={20} color="#991b1b" />
-            <h3 style={{ margin: 0, fontSize: '16px', color: '#7c1d1d' }}>Lịch sử phụng tu Tộc Phổ</h3>
-            </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e2e8f0', paddingBottom: '12px', marginBottom: '10px' }}>
+                <BookOpen size={20} color="#991b1b" style={{ flexShrink: 0 }} />
+                <h3 style={{ margin: 0, fontSize: '16px', color: '#7c1d1d', whiteSpace: 'nowrap' }}>
+                  Lịch sử phụng tu Tộc Phổ
+                </h3>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+                <button
+                  type="button"
+                  onClick={openAddRevision}
+                  style={{
+                    backgroundColor: '#fef3c7',
+                    color: '#92400e',
+                    border: '1px solid #f59e0b',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '12px',
+                    fontWeight: '700',
+                    cursor: 'pointer'
+                  }}
+                >
+                  + Thêm
+                </button>
+              </div>
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {REVISION_HISTORY.map((rev, index) => (
-                  <div key={rev.id} style={{ padding: '10px 12px', backgroundColor: '#fef2f2', borderRadius: '8px', borderLeft: '4px solid #991b1b', fontSize: '13px', lineHeight: '1.5' }}>
-                  <div style={{ fontWeight: '700', color: '#7c1d1d' }}>{index + 1}. Phụng tu: {rev.date}</div>                    <div style={{ color: '#334155', marginTop: '2px' }}>Người thực hiện: <strong>{rev.author}</strong></div>
-                </div>
+                {revisions.map((rev, index) => (
+                  <div
+                    key={rev.id}
+                    onClick={() => openEditRevision(rev)}
+                    style={{ padding: '10px 12px', backgroundColor: '#fef2f2', borderRadius: '8px', borderLeft: '4px solid #991b1b', fontSize: '13px', lineHeight: '1.5', cursor: 'pointer' }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ fontWeight: '700', color: '#7c1d1d' }}>{index + 1}. Phụng tu: {rev.date}</span>
+                      <span style={{ fontSize: '11px', color: '#b45309', fontWeight: '600' }}>Sửa →</span>
+                    </div>
+                    <div style={{ color: '#334155', marginTop: '2px' }}>Người thực hiện: <strong>{rev.author}</strong></div>
+                  </div>
                 ))}
               </div>
             </aside>
 
             <aside className="sidebar">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e2e8f0', paddingBottom: '12px', marginBottom: '12px' }}>
-                <Calendar size={20} color="#991b1b" />
-                <h3 style={{ margin: 0, fontSize: '16px', color: '#7c1d1d' }}>Lịch ngày giỗ Họ Lê Viết</h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e2e8f0', paddingBottom: '12px', marginBottom: '10px' }}>
+                <Landmark size={20} color="#991b1b" style={{ flexShrink: 0 }} />
+                <h3 style={{ margin: 0, fontSize: '16px', color: '#7c1d1d', whiteSpace: 'nowrap' }}>
+                  Lịch sử Trùng tu Từ Đường
+                </h3>
               </div>
-              {memorials.map((item) => (
-                <div key={item.id} onClick={() => setSelected(item)} className="memorial-item">
-                  <div style={{ fontWeight: 'bold' }}>{item.name} <span style={{ fontSize: '12px', fontWeight: 'normal', color: '#64748b' }}>(Đời thứ {item.generation})</span></div>
-                  <div style={{ fontSize: '13px', color: '#b45309', marginTop: '4px' }}>Chánh kỵ: {item.deathDate}</div>
-                </div>
-              ))}
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+                <button
+                  type="button"
+                  onClick={openAddRenovation}
+                  style={{
+                    backgroundColor: '#fef3c7',
+                    color: '#92400e',
+                    border: '1px solid #f59e0b',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '12px',
+                    fontWeight: '700',
+                    cursor: 'pointer'
+                  }}
+                >
+                  + Thêm
+                </button>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {renovations.map((item) => (
+                  <div
+                    key={item.id}
+                    onClick={() => openEditRenovation(item)}
+                    className="memorial-item"
+                    style={{ position: 'relative' }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ fontSize: '12px', fontWeight: '700', color: '#991b1b', backgroundColor: '#fef2f2', padding: '2px 8px', borderRadius: '4px' }}>
+                        {item.year}
+                      </span>
+                      <span style={{ fontSize: '11px', color: '#b45309', fontWeight: '600' }}>Sửa →</span>
+                    </div>
+                    <div style={{ fontWeight: '700', color: '#0f172a', marginTop: '6px', fontSize: '14px' }}>{item.title}</div>
+                    {item.detail && (
+                      <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px', lineHeight: '1.5' }}>{item.detail}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </aside>
           </div>
         </div>
@@ -766,6 +910,120 @@ export default function App() {
         showAddNews={showAddNews}
         onCloseAddNews={() => setShowAddNews(false)}
       />
+
+      {revisionModal && (
+        <div className="modal-bg">
+          <div className="modal" style={{ maxWidth: '460px' }}>
+            <div className="modal-head">
+              <h3 style={{ margin: 0, color: '#7c1d1d' }}>
+                {revisionModal.mode === 'EDIT' ? 'Sửa Thông Tin Phụng Tu Tộc Phổ' : 'Thêm Lần Phụng Tu Tộc Phổ Mới'}
+              </h3>
+              <button type="button" onClick={() => setRevisionModal(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '16px' }}>
+                ✕
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveRevision} className="form">
+              <label>
+                Thời gian / Năm phụng tu *
+                <input
+                  required
+                  placeholder="VD: Năm Bính Ngọ 2026 hoặc Tháng 3/2026"
+                  value={revForm.date}
+                  onChange={(e) => setRevForm({ ...revForm, date: e.target.value })}
+                />
+              </label>
+
+              <label>
+                Người thực hiện / Ban biên tập *
+                <input
+                  required
+                  placeholder="VD: Ông Lê Viết Thanh (Con cháu đời thứ ...)"
+                  value={revForm.author}
+                  onChange={(e) => setRevForm({ ...revForm, author: e.target.value })}
+                />
+              </label>
+
+              <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                <button type="submit" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+                  Lưu Lần Phụng Tu
+                </button>
+                {revisionModal.mode === 'EDIT' && (
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteRevision(revForm.id)}
+                    style={{ padding: '9px 14px', borderRadius: '8px', border: '1px solid #fecaca', backgroundColor: '#fef2f2', color: '#dc2626', cursor: 'pointer', fontWeight: '600' }}
+                  >
+                    Xóa
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {renovationModal && (
+        <div className="modal-bg">
+          <div className="modal" style={{ maxWidth: '480px' }}>
+            <div className="modal-head">
+              <h3 style={{ margin: 0, color: '#7c1d1d' }}>
+                {renovationModal.mode === 'EDIT' ? 'Sửa Lần Trùng Tu Từ Đường' : 'Thêm Lần Trùng Tu / Xây Dựng Mới'}
+              </h3>
+              <button type="button" onClick={() => setRenovationModal(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '16px' }}>
+                ✕
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveRenovation} className="form">
+              <label>
+                Năm / Thời gian thực hiện *
+                <input
+                  required
+                  placeholder="VD: Năm 2026 hoặc Tháng 8/2027"
+                  value={renoForm.year}
+                  onChange={(e) => setRenoForm({ ...renoForm, year: e.target.value })}
+                />
+              </label>
+
+              <label>
+                Hạng mục xây dựng / trùng tu *
+                <input
+                  required
+                  placeholder="VD: Sơn sửa Tiền đường & Hậu tẩm"
+                  value={renoForm.title}
+                  onChange={(e) => setRenoForm({ ...renoForm, title: e.target.value })}
+                />
+              </label>
+
+              <label>
+                Nội dung chi tiết (Kinh phí, vật liệu, ghi chú...)
+                <textarea
+                  rows="3"
+                  placeholder="Mô tả chi tiết hạng mục tôn tạo..."
+                  value={renoForm.detail}
+                  onChange={(e) => setRenoForm({ ...renoForm, detail: e.target.value })}
+                />
+              </label>
+
+              <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                <button type="submit" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+                  Lưu Lịch Sử Trùng Tu
+                </button>
+                {renovationModal.mode === 'EDIT' && (
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteRenovation(renoForm.id)}
+                    style={{ padding: '9px 14px', borderRadius: '8px', border: '1px solid #fecaca', backgroundColor: '#fef2f2', color: '#dc2626', cursor: 'pointer', fontWeight: '600' }}
+                  >
+                    Xóa
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
