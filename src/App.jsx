@@ -31,6 +31,16 @@ export default function App() {
   const [members, setMembers] = useState(INITIAL_MEMBERS);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterGen, setFilterGen] = useState('ALL');
+  const [treeViewMode, setTreeViewMode] = useState('LIST');
+  const [treeZoom, setTreeZoom] = useState(0.85);
+  const [treeExpandedIds, setTreeExpandedIds] = useState(() =>
+    INITIAL_MEMBERS.filter((m) => Number(m.generation) <= 3).map((m) => m.id)
+  );
+  const toggleTreeExpand = (id) => {
+    setTreeExpandedIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
   const [selected, setSelected] = useState(null);
   const [showAdd, setShowAdd] = useState(false);
   const [mapModal, setMapModal] = useState(null);
@@ -358,6 +368,219 @@ export default function App() {
     );
   };
 
+  // Hàm vẽ Sơ đồ hình cây tóm tắt (Độc lập hoàn toàn với Danh sách chi tiết, chống lặp nhánh)
+  const renderVisualTreeNode = (rootMember) => {
+    const getChildren = (parentId) => {
+      const rawChildren = members.filter((c) => Number(c.parentId) === Number(parentId));
+      const uniqueMap = new Map();
+      rawChildren.forEach((item) => {
+        if (!uniqueMap.has(item.id)) {
+          uniqueMap.set(item.id, item);
+        }
+      });
+      return Array.from(uniqueMap.values()).sort((a, b) => (a.childOrder || 99) - (b.childOrder || 99));
+    };
+
+    const renderNodeCard = (member) => {
+      const genNum = Number(member.generation);
+      const isTopHorizontal = genNum <= 3;
+      const isFemale = member.gender === 'Nữ';
+      const isMatched = searchTerm.trim() !== '' && normalizeText(member.name).includes(normalizeText(searchTerm));
+
+      const cleanName = member.name.replace(/\(.*?\)/g, '').trim();
+      const displayTitle = genNum === 1 ? `Thủy tổ - ${cleanName}` : cleanName;
+      const verticalWords = displayTitle.split(/\s+/);
+
+      return (
+        <div
+          id={`tree-node-${member.id}`}
+          onClick={() => setSelected(member)}
+          title={`${member.name} (Đời thứ ${member.generation}) - Bấm để xem chi tiết`}
+          style={{
+            backgroundColor: isMatched ? '#fef3c7' : genNum === 1 ? '#7c1d1d' : isFemale ? '#fff1f2' : '#ffffff',
+            color: genNum === 1 ? '#fde68a' : '#0f172a',
+            border: isMatched || genNum === 1 ? '2px solid #d97706' : isFemale ? '1.5px solid #f472b6' : '1.5px solid #991b1b',
+            borderRadius: '5px',
+            padding: isTopHorizontal ? '5px 10px' : '4px 2px',
+            width: isTopHorizontal ? 'auto' : '30px',
+            minWidth: isTopHorizontal ? '92px' : '30px',
+            minHeight: isTopHorizontal ? 'auto' : '78px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: isTopHorizontal ? 'center' : 'flex-start',
+            textAlign: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.08)',
+            position: 'relative',
+            zIndex: 2
+          }}
+        >
+          {isTopHorizontal ? (
+            <>
+              <div style={{ fontSize: '9px', fontWeight: '700', marginBottom: '2px', color: genNum === 1 ? '#fcd34d' : '#991b1b' }}>
+                {genNum === 1 ? 'Đời thứ I' : `Đ${genNum} • ${member.childOrder === 1 ? 'Trưởng' : `T.${member.childOrder}`}`}
+              </div>
+              <div style={{ fontSize: '12px', fontWeight: '800', whiteSpace: 'nowrap' }}>{displayTitle}</div>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: '8px', fontWeight: '800', borderBottom: '1px solid #e2e8f0', paddingBottom: '2px', marginBottom: '3px', width: '100%', color: '#991b1b', lineHeight: '1.1' }}>
+                <div>Đ{genNum}</div>
+                <div style={{ fontSize: '7.5px', opacity: 0.85 }}>{member.childOrder === 1 ? 'Trưởng' : `T.${member.childOrder}`}</div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '10.5px', fontWeight: '700', lineHeight: '1.12' }}>
+                {verticalWords.map((word, wIdx) => (
+                  <span key={wIdx}>{word}</span>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      );
+    };
+
+    const renderChildrenCluster = (parent) => {
+      const children = getChildren(parent.id);
+      if (children.length === 0) return null;
+
+      const isParentExpanded = treeExpandedIds.includes(parent.id) || searchTerm.trim() !== '';
+      if (!isParentExpanded) return null;
+
+      const hasAnyGrandChild = children.some((c) => getChildren(c.id).length > 0);
+      const isLeafCluster = children.length > 5 && !hasAnyGrandChild;
+      const activeSubParents = children.filter(
+        (c) => getChildren(c.id).length > 0 && (treeExpandedIds.includes(c.id) || searchTerm.trim() !== '')
+      );
+
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ width: '1.5px', height: '10px', backgroundColor: '#991b1b' }} />
+
+          {isLeafCluster ? (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, auto)', gap: '4px 3px', padding: '6px', borderTop: '1.5px solid #991b1b', backgroundColor: 'rgba(254, 243, 199, 0.35)', borderRadius: '6px' }}>
+              {children.map((child) => (
+                <div key={child.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  {renderNodeCard(child)}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative' }}>
+              {children.map((child, index) => {
+                const isFirst = index === 0;
+                const isLast = index === children.length - 1;
+                const isOnly = children.length === 1;
+                const childKids = getChildren(child.id);
+                const isChildExpanded = treeExpandedIds.includes(child.id) || searchTerm.trim() !== '';
+
+                return (
+                  <div key={child.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', padding: Number(child.generation) <= 3 ? '0 4px' : '0 1.5px' }}>
+                    {!isOnly && (
+                      <div style={{ position: 'absolute', top: 0, left: isFirst ? '50%' : 0, right: isLast ? '50%' : 0, height: '1.5px', backgroundColor: '#991b1b' }} />
+                    )}
+                    <div style={{ width: '1.5px', height: '10px', backgroundColor: '#991b1b' }} />
+                    {renderNodeCard(child)}
+
+                    {childKids.length > 0 && (
+                      <>
+                        <div style={{ width: '1.5px', height: '5px', backgroundColor: '#991b1b' }} />
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleTreeExpand(child.id);
+                          }}
+                          style={{
+                            width: '17px',
+                            height: '17px',
+                            borderRadius: '50%',
+                            border: '1px solid #991b1b',
+                            backgroundColor: isChildExpanded ? '#fef2f2' : '#991b1b',
+                            color: isChildExpanded ? '#991b1b' : '#ffffff',
+                            fontSize: '10px',
+                            fontWeight: '800',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            padding: 0,
+                            zIndex: 3
+                          }}
+                        >
+                          {isChildExpanded ? '−' : `+${childKids.length}`}
+                        </button>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {activeSubParents.length === 1 && (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              {renderChildrenCluster(activeSubParents.at(0))}
+            </div>
+          )}
+
+          {activeSubParents.length > 1 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-start', gap: '6px', marginTop: '6px', paddingTop: '6px', borderTop: '1.5px dashed #d97706', maxWidth: '100%' }}>
+              {activeSubParents.map((subParent) => (
+                <div key={subParent.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'rgba(255, 255, 255, 0.85)', border: '1px solid #e5d7be', borderRadius: '6px', padding: '4px 3px' }}>
+                  <div style={{ fontSize: '9.5px', fontWeight: '700', color: '#7c1d1d', backgroundColor: '#fef3c7', padding: '1px 7px', borderRadius: '99px', border: '1px solid #f59e0b', marginBottom: '2px', whiteSpace: 'nowrap' }}>
+                    ↳ Nhánh {subParent.name.replace(/\(.*?\)/g, '').trim()}
+                  </div>
+                  {renderChildrenCluster(subParent)}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const rootKids = getChildren(rootMember.id);
+    const isRootExpanded = treeExpandedIds.includes(rootMember.id) || searchTerm.trim() !== '';
+
+    return (
+      <div key={rootMember.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {renderNodeCard(rootMember)}
+        {rootKids.length > 0 && (
+          <>
+            <div style={{ width: '1.5px', height: '6px', backgroundColor: '#991b1b' }} />
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleTreeExpand(rootMember.id);
+              }}
+              style={{
+                width: '18px',
+                height: '18px',
+                borderRadius: '50%',
+                border: '1px solid #991b1b',
+                backgroundColor: isRootExpanded ? '#fef2f2' : '#991b1b',
+                color: isRootExpanded ? '#991b1b' : '#ffffff',
+                fontSize: '11px',
+                fontWeight: '800',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            >
+              {isRootExpanded ? '−' : `+${rootKids.length}`}
+            </button>
+            {renderChildrenCluster(rootMember)}
+          </>
+        )}
+      </div>
+    );
+  };
+
+
   const renderVerticalTree = (parentId = null, level = 0) => {
     const children = members.filter((m) => m.parentId === parentId);
     if (!children.length) return null;
@@ -661,12 +884,52 @@ export default function App() {
               </div>
 
               {filterGen === 'ALL' && (
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button type="button" onClick={expandAll} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', fontSize: '13px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
-                  <ChevronsDown size={15} /> Mở tất cả                  </button>
-                  <button type="button" onClick={collapseAll} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', fontSize: '13px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
-                  <ChevronsUp size={15} /> Thu gọn
-                  </button>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '4px', backgroundColor: '#f1f5f9', padding: '3px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+                    <button
+                      type="button"
+                      onClick={() => setTreeViewMode('LIST')}
+                      style={{
+                        padding: '5px 10px',
+                        borderRadius: '6px',
+                        border: 'none',
+                        fontSize: '12.5px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        backgroundColor: treeViewMode === 'LIST' ? '#7c1d1d' : 'transparent',
+                        color: treeViewMode === 'LIST' ? '#fde68a' : '#475569'
+                      }}
+                    >
+                      Danh sách chi tiết
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTreeViewMode('VISUAL_TREE')}
+                      style={{
+                        padding: '5px 10px',
+                        borderRadius: '6px',
+                        border: 'none',
+                        fontSize: '12.5px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        backgroundColor: treeViewMode === 'VISUAL_TREE' ? '#7c1d1d' : 'transparent',
+                        color: treeViewMode === 'VISUAL_TREE' ? '#fde68a' : '#475569'
+                      }}
+                    >
+                      Sơ đồ hình cây
+                    </button>
+                  </div>
+
+                  {treeViewMode === 'LIST' && (
+                    <>
+                      <button type="button" onClick={expandAll} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', fontSize: '13px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
+                        <ChevronsDown size={15} /> Mở tất cả
+                      </button>
+                      <button type="button" onClick={collapseAll} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 12px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', fontSize: '13px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}>
+                        <ChevronsUp size={15} /> Thu gọn
+                      </button>
+                    </>
+                  )}
                 </div>
               )}
             </div>
@@ -695,7 +958,72 @@ export default function App() {
               <div className="plaque-connector" />
               </div>
 
-              {renderVerticalTree(null)}
+              {treeViewMode === 'LIST' ? (
+                renderVerticalTree(null)
+              ) : (
+                <div
+                  style={{
+                    overflowX: 'auto',
+                    padding: '16px',
+                    backgroundColor: '#fdfbf7',
+                    borderRadius: '10px',
+                    border: '1px solid #e5d7be'
+                  }}
+                >
+                  {/* Thanh công cụ Thu phóng & Mở/Thu gọn nhánh độc lập */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px', borderBottom: '1px dashed #d6c7b2', paddingBottom: '10px' }}>
+                    <span style={{ fontSize: '12px', color: '#78716c', fontStyle: 'italic' }}>
+                      Bấm nút <strong>(−)</strong> hoặc <strong>(+số con)</strong> dưới mỗi người để thu gọn/mở từng nhánh
+                    </span>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+                      <button
+                        type="button"
+                        onClick={() => setTreeExpandedIds(members.filter((m) => Number(m.generation) <= 3).map((m) => m.id))}
+                        style={{ padding: '4px 9px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#ffffff', fontSize: '12px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}
+                      >
+                        Gọn tới Đời 4
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setTreeExpandedIds(members.map((m) => m.id))}
+                        style={{ padding: '4px 9px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#ffffff', fontSize: '12px', fontWeight: '600', cursor: 'pointer', color: '#334155' }}
+                      >
+                        Mở hết
+                      </button>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '2px 6px' }}>
+                        <button
+                          type="button"
+                          onClick={() => setTreeZoom((z) => Math.max(0.5, Number((z - 0.1).toFixed(2))))}
+                          style={{ border: 'none', background: 'none', fontWeight: '800', cursor: 'pointer', padding: '2px 6px', fontSize: '14px', color: '#7c1d1d' }}
+                          title="Thu nhỏ sơ đồ"
+                        >
+                          −
+                        </button>
+                        <span style={{ fontSize: '12px', fontWeight: '700', color: '#334155', minWidth: '38px', textAlign: 'center' }}>
+                          {Math.round(treeZoom * 100)}%
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setTreeZoom((z) => Math.min(1.1, Number((z + 0.1).toFixed(2))))}
+                          style={{ border: 'none', background: 'none', fontWeight: '800', cursor: 'pointer', padding: '2px 6px', fontSize: '14px', color: '#7c1d1d' }}
+                          title="Phóng to sơ đồ"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Khung vẽ sơ đồ áp dụng mức thu phóng */}
+                  <div style={{ display: 'inline-flex', minWidth: '100%', justifyContent: 'center', zoom: treeZoom }}>
+                    {members
+                      .filter((m) => !m.parentId)
+                      .map((rootMember) => renderVisualTreeNode(rootMember))}
+                  </div>
+                </div>
+              )}
+
             </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -704,7 +1032,8 @@ export default function App() {
             )}
           </main>
 
-          <div className="sidebar-col">
+          {treeViewMode === 'LIST' && (
+            <div className="sidebar-col">
             <aside className="sidebar">
               <h3
                 style={{
@@ -823,6 +1152,7 @@ export default function App() {
               </div>
             </aside>
           </div>
+        )}
         </div>
       )}
        
