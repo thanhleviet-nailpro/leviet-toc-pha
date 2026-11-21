@@ -1,16 +1,24 @@
-# React + Vite
+# Gia phả họ Lê Viết — Phú Ngạn, Huế
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ứng dụng gia phả chạy bằng React + Vite.
 
-Currently, two official plugins are available:
+## Chạy trên máy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Cài Node.js bản LTS.
+2. Mở terminal tại thư mục dự án.
+3. Chạy `npm install`.
+4. Chạy `npm run dev` và mở địa chỉ Vite hiện trong terminal.
 
-## React Compiler
+## Dữ liệu và sao lưu
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Dữ liệu thành viên, tin tức, lịch phụng tu và lịch trùng tu được lưu tự động trong trình duyệt (localStorage) trên thiết bị đang sử dụng.
+- Dùng **Sao lưu dữ liệu** để tải file JSON sao lưu.
+- Dùng **Nhập bản sao lưu** để phục hồi từ JSON. Việc nhập sẽ thay thế dữ liệu hiện có sau khi xác nhận.
+- Sao lưu thường xuyên và giữ file JSON ở nơi an toàn. Dữ liệu localStorage không tự đồng bộ giữa các máy hoặc trình duyệt.
 
-## Expanding the Oxlint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Kiểm tra dự án
+
+- `npm run build`: dựng bản production.
+- `npm run lint`: kiểm tra lint.
+- `npm run preview`: xem bản production local.

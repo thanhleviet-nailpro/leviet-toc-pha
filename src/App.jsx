@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { UserPlus, Search, Calendar, MapPin, ChevronRight, ChevronDown, ChevronsDown, ChevronsUp, Landmark, BookOpen, Download, Home, Users, PhoneCall, Newspaper } from 'lucide-react';
 import { INITIAL_MEMBERS, FAMILY_INFO, REVISION_HISTORY, ANNUAL_NEWS, CONTACT_INFO, TEMPLE_RENOVATIONS } from './data';
 import MapModal from './MapModal';
@@ -7,6 +7,16 @@ import NewsModals from './NewsModals';
 import './App.css';
 
 const GENERATION_LIST = Array.from({ length: 20 }, (_, i) => i + 1);
+
+const STORAGE_KEY = 'le-viet-gia-pha-v1';
+const readSavedData = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+};
 
 const GEN_COLORS = [
   '#991b1b', '#b45309', '#047857', '#1d4ed8',
@@ -28,7 +38,8 @@ return (
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('GIA_PHA'); // Mặc định mở mục Gia phả (có thể đổi thành 'TRANG_CHU')
-  const [members, setMembers] = useState(INITIAL_MEMBERS);
+  const [savedData] = useState(readSavedData);
+  const [members, setMembers] = useState(() => savedData?.members ?? INITIAL_MEMBERS);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterGen, setFilterGen] = useState('ALL');
   const [treeViewMode, setTreeViewMode] = useState('LIST');
@@ -45,10 +56,10 @@ export default function App() {
   const [showAdd, setShowAdd] = useState(false);
   const [mapModal, setMapModal] = useState(null);
   const [expandedIds, setExpandedIds] = useState(Array.of(1, 2, 4, 6));
-  const [newsList, setNewsList] = useState(ANNUAL_NEWS);
+  const [newsList, setNewsList] = useState(() => savedData?.newsList ?? ANNUAL_NEWS);
   const [selectedNews, setSelectedNews] = useState(null);
   const [showAddNews, setShowAddNews] = useState(false);
-  const [revisions, setRevisions] = useState(REVISION_HISTORY);
+  const [revisions, setRevisions] = useState(() => savedData?.revisions ?? REVISION_HISTORY);
   const [revisionModal, setRevisionModal] = useState(null); // null | { mode: 'ADD' | 'EDIT', data?: object }
   const [revForm, setRevForm] = useState({ id: null, date: '', author: '' });
 
@@ -80,7 +91,15 @@ export default function App() {
     }
   };
 
-  const [renovations, setRenovations] = useState(TEMPLE_RENOVATIONS);
+  const [renovations, setRenovations] = useState(() => savedData?.renovations ?? TEMPLE_RENOVATIONS);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ members, newsList, revisions, renovations, savedAt: new Date().toISOString() }));
+    } catch (error) {
+      console.warn('Không thể lưu dữ liệu gia phả vào trình duyệt:', error);
+    }
+  }, [members, newsList, revisions, renovations]);
   const [renovationModal, setRenovationModal] = useState(null); // null | { mode: 'ADD' | 'EDIT', data?: object }
   const [renoForm, setRenoForm] = useState({ id: null, year: '', title: '', detail: '' });
 
@@ -204,14 +223,46 @@ export default function App() {
   };
 
   const handleExportData = () => {
-    const content = `export const FAMILY_INFO = ${JSON.stringify(FAMILY_INFO, null, 2)};\n\nexport const REVISION_HISTORY = ${JSON.stringify(revisions, null, 2)};\n\nexport const TEMPLE_RENOVATIONS = ${JSON.stringify(renovations, null, 2)};\n\nexport const ANNUAL_NEWS = ${JSON.stringify(newsList, null, 2)};\n\nexport const CONTACT_INFO = ${JSON.stringify(CONTACT_INFO, null, 2)};\n\nexport const INITIAL_MEMBERS = ${JSON.stringify(members, null, 2)};\n`;
-    const blob = new Blob(Array.of(content), { type: 'text/javascript;charset=utf-8' });
+    const backup = {
+      app: 'LeVietGiaPha',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      members,
+      newsList,
+      revisions,
+      renovations
+    };
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'data.js';
+    link.download = `gia-pha-le-viet-backup-${new Date().toISOString().slice(0, 10)}.json`;
     link.click();
     URL.revokeObjectURL(url);
+  };
+
+  const handleImportBackup = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    try {
+      const imported = JSON.parse(await file.text());
+      if (!Array.isArray(imported.members) || imported.members.length === 0) {
+        throw new Error('File sao lưu không có danh sách thành viên hợp lệ.');
+      }
+      const idSet = new Set(imported.members.map((m) => String(m.id)));
+      const duplicateIds = imported.members.some((m, i) => imported.members.findIndex((other) => String(other.id) === String(m.id)) !== i);
+      const invalid = duplicateIds || imported.members.some((m) => !m.name || (m.parentId != null && !idSet.has(String(m.parentId))));
+      if (invalid) throw new Error('Dữ liệu thành viên thiếu tên hoặc có liên kết cha không hợp lệ.');
+      if (!window.confirm(`Nhập ${imported.members.length} thành viên từ file sao lưu? Dữ liệu đang có sẽ được thay thế.`)) return;
+      setMembers(imported.members);
+      if (Array.isArray(imported.newsList)) setNewsList(imported.newsList);
+      if (Array.isArray(imported.revisions)) setRevisions(imported.revisions);
+      if (Array.isArray(imported.renovations)) setRenovations(imported.renovations);
+      alert('Đã nhập dữ liệu sao lưu thành công.');
+    } catch (error) {
+      alert(`Không thể nhập file sao lưu: ${error.message}`);
+    }
   };
 
   const memorials = members.filter(
@@ -629,9 +680,15 @@ export default function App() {
             </div>
           </div>
 
-          <button type="button" onClick={handleExportData} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(255, 251, 235, 0.16)', color: '#fde68a', border: '1px solid #fde68a', borderRadius: '8px', padding: '8px 14px', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
-            <Download size={16} /> Xuất file data.js
-          </button>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <button type="button" onClick={handleExportData} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(255, 251, 235, 0.16)', color: '#fde68a', border: '1px solid #fde68a', borderRadius: '8px', padding: '8px 14px', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
+              <Download size={16} /> Sao lưu dữ liệu
+            </button>
+            <label style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(255, 251, 235, 0.16)', color: '#fde68a', border: '1px solid #fde68a', borderRadius: '8px', padding: '8px 14px', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>
+              <Users size={16} /> Nhập bản sao lưu
+              <input type="file" accept=".json,application/json" onChange={handleImportBackup} style={{ display: 'none' }} />
+            </label>
+          </div>
         </div>
 
         <div className="banner-sub-row">
@@ -715,7 +772,7 @@ export default function App() {
             ))}
           </div>
 
-          <ScrollDivider title="Lịch Sử Phụng Tu Tộc Phổ & Ngày Giỗ" />
+          <ScrollDivider title="Lịch Sử Phụng Tu Tộc Phổ & Sổ vàng công đức" />
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
             <div style={{ flex: 1, minWidth: '300px', backgroundColor: '#ffffff', padding: '20px', borderRadius: '12px', border: '1px solid #e5dcc8' }}>
