@@ -206,11 +206,21 @@ export const INITIAL_MEMBERS = [
   { id: 22, parentId: 8, generation: 5, childOrder: 7, name: 'Lê Viết Út', title: 'Con trai thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '27-12 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Nguyễn Thị Đặc' },
   { id: 23, parentId: 8, generation: 5, childOrder: 8, name: 'Lê Viết Tam', title: 'Con trai thứ sáu', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đặc' },
   {
-    id: 24, parentId: 8, generation: 5, childOrder: 9,
-    name: 'Lê Viết Khoa', title: 'Con trai thứ bảy', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '16-02 ÂL', graveLocation: 'Xứ Cồn Mè Thượng Nguyên', motherName: 'Nguyễn Thị Đặc',
-    spouses: [{ name: 'Trần Thị Sàn', role: 'Vợ chánh' }]
-  },
+  id: 24, parentId: 8, generation: 5, childOrder: 9,
+  name: 'Lê Viết Khoa', title: 'Con trai thứ bảy', gender: 'Nam',
+  birthYear: 'Chưa rõ', deathDate: '16-02 ÂL',
+  graveLocation: '16.534108, 107.549309',
+  graveCoords: 'Xứ Cồn Mè Thượng Nguyên / Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+  motherName: 'Nguyễn Thị Đặc',
+  spouses: [
+    {
+      name: 'Trần Thị Sàn',
+      role: 'Vợ chánh',
+      graveLocation: '16.512382, 107.458229',
+      graveCoords: 'Tứ Hạ, Hương Trà, Tp.Huế'
+    }
+  ]
+},
   { id: 25, parentId: 8, generation: 5, childOrder: 10, name: 'Lê Thị Viện', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đặc' },
   { id: 26, parentId: 12, generation: 5, childOrder: 1, name: 'Lê Viết Thu', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Sửu' },
   { id: 27, parentId: 12, generation: 5, childOrder: 2, name: 'Lê Viết Đông', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Sửu' },
@@ -302,12 +312,22 @@ export const INITIAL_MEMBERS = [
     spouses: [{ name: 'Phan Thị Quào', role: 'Vợ chánh', deathDate: '20-12 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Phan làng Thanh Hà' }]
   },
   { id: 73, parentId: 24, generation: 6, childOrder: 6, name: 'Lê Viết Tuân', title: 'Con trai thứ sáu', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '15-09 ÂL', motherName: 'Trần Thị Sàn' },
-  {
+    {
     id: 74, parentId: 24, generation: 6, childOrder: 7,
     name: 'Lê Viết Khanh', title: 'Viện Hàn Lâm', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '05-05 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Sàn',
+    birthYear: 'Chưa rõ', deathDate: '05-05 ÂL',
+    graveLocation: '16.534267, 107.549503',
+    graveCoords: 'Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Trần Thị Sàn',
     spouses: [
-      { name: 'Nguyễn Thị Quyến', role: 'Vợ chánh', deathDate: '03-05 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Nguyễn làng Kim Đôi' },
+      {
+        name: 'Nguyễn Thị Quyến',
+        role: 'Vợ chánh',
+        deathDate: '03-05 ÂL',
+        graveLocation: '16.534267, 107.549503',
+        graveCoords: 'Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+        note: 'Con gái Họ Nguyễn làng Kim Đôi'
+      },
       { name: 'Nguyễn Thị Các', role: 'Vợ thứ', note: 'Con gái làng Hương Cần, H. Hương Trà' }
     ]
   },
@@ -320,781 +340,900 @@ export const INITIAL_MEMBERS = [
     birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sàn',
     spouses: [{ name: 'Nguyễn Thị Tuyết', role: 'Vợ chánh', deathDate: '01-12 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Bị chú: (Cải giá)' }]
   },
-    // ================= ĐỜI THỨ 7 =================
-  // --- Các con ông Lê Viết Đăng - húy Đương (id: 47) & bà Ngô Thị Chen ---
-  { id: 79, parentId: 47, generation: 7, childOrder: 1, name: 'Lê Viết Khùng', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 80, parentId: 47, generation: 7, childOrder: 2, name: 'Lê Viết Chái', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 81, parentId: 47, generation: 7, childOrder: 3, name: 'Lê Thị Lò Lò', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 82, parentId: 47, generation: 7, childOrder: 4, name: 'Lê Viết Diên', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 83, parentId: 47, generation: 7, childOrder: 5, name: 'Lê Viết Hai', title: 'Con trai thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 84, parentId: 47, generation: 7, childOrder: 6, name: 'Lê Vô danh', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Ngô Thị Chen' },
-  { id: 85, parentId: 47, generation: 7, childOrder: 7, name: 'Lê Viết Lương', title: 'Con trai thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
+  // ================= FILE 1: NHÁNH ÔNG LÊ VIẾT KHUÔN (CON ÔNG LÊ VIẾT ĐĂNG - id: 47) =================
+  // --- Đời thứ 7: Các con ông Lê Viết Đăng - húy Đương (id: 47) & bà Ngô Thị Chen ---
+  { id: 79, parentId: 47, generation: 7, childOrder: 1, name: 'Lê Viết Khùng', title: 'Hiển khảo - Thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con trai ông Lê Viết Đương.' },
+  { id: 80, parentId: 47, generation: 7, childOrder: 2, name: 'Lê Viết Chái', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con trai ông Lê Viết Đương.' },
+  { id: 81, parentId: 47, generation: 7, childOrder: 3, name: 'Lê Thị Lò Lò', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con gái ông Lê Viết Đương gả ông Nguyễn Văn Thắng ở làng.' },
+  { id: 82, parentId: 47, generation: 7, childOrder: 4, name: 'Lê Viết Diên', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con trai ông Lê Viết Đương.' },
+  { id: 83, parentId: 47, generation: 7, childOrder: 5, name: 'Lê Viết Hai', title: 'Thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con trai ông Lê Viết Đương.' },
+  { id: 84, parentId: 47, generation: 7, childOrder: 6, name: 'Lê Thị Vô danh', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Ngô Thị Chen', bio: 'Con gái ông Lê Viết Đương.' },
+  { id: 85, parentId: 47, generation: 7, childOrder: 7, name: 'Lê Viết Lương', title: 'Thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen', bio: 'Con trai ông Lê Viết Đương.' },
   {
     id: 86, parentId: 47, generation: 7, childOrder: 8,
-    name: 'Lê Viết Khuôn', title: 'Hiển khảo', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-07 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Ngô Thị Chen',
-    spouses: [{ name: 'Nguyễn Thị Thuận', role: 'Vợ chánh', deathDate: '01-03 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 87, parentId: 47, generation: 7, childOrder: 9, name: 'Lê Viết Cận', title: 'Con trai thứ bảy', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 88, parentId: 47, generation: 7, childOrder: 10, name: 'Lê Viết Khu', title: 'Con trai thứ tám', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  { id: 89, parentId: 47, generation: 7, childOrder: 11, name: 'Lê Thị Bệ', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Chen' },
-  {
-    id: 90, parentId: 47, generation: 7, childOrder: 12,
-    name: 'Lê Viết Tráp', title: 'Con trai thứ chín (Thứ tám)', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '12-03 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Ngô Thị Chen',
+    name: 'Lê Viết Khuôn', title: 'Thứ sáu', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '25-12 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Ngô Thị Chen',
     spouses: [
-      { name: 'Trần Thị Đằng', role: 'Vợ chánh', deathDate: '08-03 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Trần ở làng' },
-      { name: 'Trần Thị Đang', role: 'Vợ thứ', deathDate: '14-10 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Trần ở làng' }
-    ]
+      { name: 'Nguyễn Thị Khoái', role: 'Vợ chánh', deathDate: '28-03 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Nguyễn Đình ở làng' },
+      { name: 'Ngô Thị Yến', role: 'Vợ thứ', note: 'Con gái Họ Ngô người ở làng' }
+    ],
+    bio: 'Con trai ông Lê Viết Đương.'
   },
 
-  // --- Các con ông Lê Viết Em (id: 55) & bà Nguyễn Thị Cần ---
-  { id: 91, parentId: 55, generation: 7, childOrder: 1, name: 'Lê Viết Sơn', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 92, parentId: 55, generation: 7, childOrder: 2, name: 'Lê Thị Xuyến Chị', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 93, parentId: 55, generation: 7, childOrder: 3, name: 'Lê Thị Xuyến Em', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
+  // --- Đời thứ 8: Các con ông Lê Viết Khuôn (id: 86) ---
   {
-    id: 94, parentId: 55, generation: 7, childOrder: 4,
-    name: 'Lê Viết Vàng', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '13-02 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Nguyễn Thị Cần',
-    spouses: [{ name: 'Ngô Thị Kỷ', role: 'Vợ chánh', deathDate: '20-02 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái ông Ngô Hữu Chỉnh ở làng' }]
+    id: 87, parentId: 86, generation: 8, childOrder: 1,
+    name: 'Lê Viết Hiện', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '11-05 ÂL', graveLocation: 'Xứ Thành đất Quan Phòng', motherName: 'Nguyễn Thị Khoái',
+    spouses: [{ name: 'Lê Thị Hạnh', role: 'Vợ chánh', deathDate: '10-04 ÂL', graveLocation: 'Xứ Cồn Ngò', note: 'Con gái ông Lê Văn Om ở làng' }],
+    bio: 'Con trai ông Lê Viết Khuôn.'
   },
-  { id: 95, parentId: 55, generation: 7, childOrder: 5, name: 'Lê Thị Cán', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 96, parentId: 55, generation: 7, childOrder: 6, name: 'Lê Viết Lọ', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 97, parentId: 55, generation: 7, childOrder: 7, name: 'Lê Thị Nậy', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 98, parentId: 55, generation: 7, childOrder: 8, name: 'Lê Thị Don', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
-  { id: 99, parentId: 55, generation: 7, childOrder: 9, name: 'Lê Thị Dỏ', title: 'Con gái thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cần' },
+  {
+    id: 88, parentId: 86, generation: 8, childOrder: 2,
+    name: 'Lê Viết Tắt', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '23-05 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Khoái',
+    spouses: [{ name: 'Nguyễn Thị Nguyệt', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn làng La Vân Hạ, xã Quảng Thọ' }],
+    bio: 'Con trai ông Lê Viết Khuôn.'
+  },
+  { id: 89, parentId: 86, generation: 8, childOrder: 3, name: 'Lê Viết Huyền', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Yến', bio: 'Con trai ông Lê Viết Khuôn.' },
 
-  // --- Các con ông Lê Viết Nhất (id: 56) & bà Ngô Thị Cưỡi ---
-  { id: 100, parentId: 56, generation: 7, childOrder: 1, name: 'Lê Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Ngô Thị Cưỡi' },
-  { id: 101, parentId: 56, generation: 7, childOrder: 2, name: 'Lê Thị Con', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Cưỡi' },
+  // --- Đời thứ 9: Các con ông Lê Viết Hiện (id: 87) & bà Lê Thị Hạnh ---
   {
-    id: 102, parentId: 56, generation: 7, childOrder: 3,
-    name: 'Lê Viết Khúc', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '01-01 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Ngô Thị Cưỡi',
-    spouses: [{ name: 'Trần Thị Thuần', role: 'Vợ chánh', deathDate: '05-05 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái ông Trần Công Cẩn ở làng' }]
+    id: 90, parentId: 87, generation: 9, childOrder: 1,
+    name: 'Lê Viết Trung', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Hạnh',
+    spouses: [{ name: 'Phan Thị Sương', role: 'Vợ chánh', note: 'Con gái Họ Phan làng Phú Lương A' }],
+    bio: 'Con trai ông Lê Viết Hiện.'
   },
   {
-    id: 103, parentId: 56, generation: 7, childOrder: 4,
-    name: 'Lê Viết Thỉ', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '17-01 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Ngô Thị Cưỡi',
+    id: 91, parentId: 87, generation: 9, childOrder: 2,
+    name: 'Lê Viết Sửu', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Hạnh',
+    spouses: [{ name: 'Nguyễn Thị Nguyệt', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Văn Bảo ở làng' }],
+    bio: 'Con trai ông Lê Viết Hiện.'
+  },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Tắt (id: 88) & bà Nguyễn Thị Nguyệt ---
+  {
+    id: 92, parentId: 88, generation: 9, childOrder: 1,
+    name: 'Lê Viết Điệp', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Huỳnh Thị Nữ', role: 'Vợ chánh', note: 'Con gái Họ Huỳnh làng Tây Thành' }],
+    bio: 'Con trai ông Lê Viết Tắt.'
+  },
+  { id: 93, parentId: 88, generation: 9, childOrder: 2, name: 'Lê Thị Thu Sương', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Tắt gả người Họ Trần ở làng.' },
+  { id: 94, parentId: 88, generation: 9, childOrder: 3, name: 'Lê Thị Thu Sang', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Tắt gả ông Trần Xuân Quang làng Mỹ Xá.' },
+  { id: 95, parentId: 88, generation: 9, childOrder: 4, name: 'Lê Thị Mai Lan', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Tắt gả người Họ Nguyễn ở làng.' },
+  {
+    id: 96, parentId: 88, generation: 9, childOrder: 5,
+    name: 'Lê Viết Tùng', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Huỳnh Thị Toàn', role: 'Vợ chánh', note: 'Con gái Họ Huỳnh làng Tây Thành' }],
+    bio: 'Con trai ông Lê Viết Tắt.'
+  },
+  { id: 97, parentId: 88, generation: 9, childOrder: 6, name: 'Lê Viết Sơn', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Xứ Nam Ô, Tp. Đà Nẵng', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con trai ông Lê Viết Tắt.' },
+  {
+    id: 98, parentId: 88, generation: 9, childOrder: 7,
+    name: 'Lê Viết Niệm', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Hồ Thị Thủy', role: 'Vợ chánh', note: 'Con gái Họ Hồ xã Hải Dương' }],
+    bio: 'Con trai ông Lê Viết Tắt.'
+  },
+  {
+    id: 99, parentId: 88, generation: 9, childOrder: 8,
+    name: 'Lê Viết Bình', title: 'Thứ năm', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Phan Thị Đài', role: 'Vợ chánh', note: 'Con gái Họ Phan làng Thủy Điền' }],
+    bio: 'Con trai ông Lê Viết Tắt. (Ghi chú: Con của chú Lê Viết Bình sẽ bổ sung sau, vì còn nhỏ).'
+  },
+  { id: 100, parentId: 88, generation: 9, childOrder: 9, name: 'Lê Viết Suốt', title: 'Thứ sáu', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '24-12 ÂL', graveLocation: 'Xứ Quảng Ngãi', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con trai ông Lê Viết Tắt.' },
+  { id: 101, parentId: 88, generation: 9, childOrder: 10, name: 'Lê Thị Mai Hương', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Tắt gả người Họ Nguyễn làng Hương Cần.' },
+  {
+    id: 102, parentId: 88, generation: 9, childOrder: 11,
+    name: 'Lê Viết Hòa', title: 'Thứ bảy', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Đặng Thị Thu Thủy', role: 'Vợ chánh', note: 'Con gái Họ Đặng xã Phú Xuân, huyện Phú Vang' }],
+    bio: 'Con trai ông Lê Viết Tắt. (Ghi chú: Con của chú Lê Viết Hòa sẽ bổ sung sau, vì còn nhỏ).'
+  },
+  {
+    id: 103, parentId: 88, generation: 9, childOrder: 12,
+    name: 'Lê Viết Hòa Hiệp', title: 'Thứ bảy', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '02-02 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Nguyệt',
+    spouses: [{ name: 'Trần Thị Nguyệt', role: 'Vợ chánh', note: 'Không sanh hạ (cải giá)' }],
+    bio: 'Con trai ông Lê Viết Tắt.'
+  },
+  // --- Đời thứ 10 (và Đời 11): Hậu duệ nhánh ông Lê Viết Khuôn ---
+  {
+    id: 104, parentId: 90, generation: 10, childOrder: 1,
+    name: 'Lê Viết Trường', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Sương',
+    spouses: [{ name: 'Nguyễn Thị Bích Lan', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn xã Minh Hợp, tỉnh Nghệ An' }],
+    bio: 'Con trai ông Lê Viết Trung.'
+  },
+  { id: 105, parentId: 104, generation: 11, childOrder: 1, name: 'Lê Viết Hoàng Vũ', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Bích Lan', bio: 'Con trai ông Lê Viết Trường.' },
+  { id: 106, parentId: 90, generation: 10, childOrder: 2, name: 'Lê Thị Lập', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Sương', bio: 'Con gái ông Lê Viết Trung.' },
+  { id: 107, parentId: 90, generation: 10, childOrder: 3, name: 'Lê Thị An', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Sương', bio: 'Con gái ông Lê Viết Trung.' },
+
+  { id: 108, parentId: 91, generation: 10, childOrder: 1, name: 'Lê Thị Bích Thu', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '06-12 ÂL', graveLocation: 'Xứ Thành đất Quan Phòng', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Sửu.' },
+  { id: 109, parentId: 91, generation: 10, childOrder: 2, name: 'Lê Thị Trang', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con gái ông Lê Viết Sửu gả người Họ Trần ở làng.' },
+  { id: 110, parentId: 91, generation: 10, childOrder: 3, name: 'Lê Viết Nguyên', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nguyệt', bio: 'Con trai ông Lê Viết Sửu.' },
+
+  { id: 111, parentId: 92, generation: 10, childOrder: 1, name: 'Lê Thị Cẩm Châu', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ', bio: 'Con gái ông Lê Viết Điệp gả người Họ Trịnh làng La Vân Hạ.' },
+  {
+    id: 112, parentId: 92, generation: 10, childOrder: 2,
+    name: 'Lê Viết Huy', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ',
+    spouses: [{ name: 'Võ Thanh Hồng Phương', role: 'Vợ chánh', note: 'Con gái Họ Võ xã Thủy Xuân, huyện Hương Thủy' }],
+    bio: 'Con trai ông Lê Viết Điệp.'
+  },
+  { id: 113, parentId: 92, generation: 10, childOrder: 3, name: 'Lê Thị Mỹ Hoa', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ', bio: 'Con gái ông Lê Viết Điệp gả người Họ Đặng thôn Hà Lạc.' },
+  { id: 114, parentId: 92, generation: 10, childOrder: 4, name: 'Lê Thị Lệ Quỳnh', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ', bio: 'Con gái ông Lê Viết Điệp.' },
+  { id: 115, parentId: 92, generation: 10, childOrder: 5, name: 'Lê Thị Diệu Lê', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ', bio: 'Con gái ông Lê Viết Điệp.' },
+  { id: 116, parentId: 92, generation: 10, childOrder: 6, name: 'Lê Thị Hải Yến', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Nữ', bio: 'Con gái ông Lê Viết Điệp.' },
+
+  { id: 117, parentId: 96, generation: 10, childOrder: 1, name: 'Lê Viết Nguyên Tuấn', title: 'Thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Toàn', bio: 'Con trai ông Lê Viết Tùng.' },
+  { id: 118, parentId: 96, generation: 10, childOrder: 2, name: 'Lê Thị Diệu Hồng', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Toàn', bio: 'Con gái ông Lê Viết Tùng.' },
+
+  { id: 119, parentId: 98, generation: 10, childOrder: 1, name: 'Lê Viết Vô Danh (1)', title: 'Thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '17-02 ÂL', motherName: 'Hồ Thị Thủy', bio: 'Con Vô danh ông Lê Viết Niệm.' },
+  { id: 120, parentId: 98, generation: 10, childOrder: 2, name: 'Lê Thị Thanh', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Thủy', bio: 'Con gái ông Lê Viết Niệm.' },
+  { id: 121, parentId: 98, generation: 10, childOrder: 3, name: 'Lê Thị Mỹ Thuận', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Thủy', bio: 'Con gái ông Lê Viết Niệm.' },
+  { id: 122, parentId: 98, generation: 10, childOrder: 4, name: 'Lê Viết Vô Danh (2)', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '28-03 ÂL', motherName: 'Hồ Thị Thủy', bio: 'Con Vô danh ông Lê Viết Niệm.' },
+  { id: 123, parentId: 98, generation: 10, childOrder: 5, name: 'Lê Thị Phương Anh', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Thủy', bio: 'Con gái ông Lê Viết Niệm.' },
+  { id: 124, parentId: 98, generation: 10, childOrder: 6, name: 'Lê Thị Vô Danh', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '28-03 ÂL', motherName: 'Hồ Thị Thủy', bio: 'Con Vô danh ông Lê Viết Niệm.' },
+
+  { id: 125, parentId: 99, generation: 10, childOrder: 1, name: 'Lê Thị Thảo Nguyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Đài', bio: 'Con gái ông Lê Viết Bình.' },
+  { id: 126, parentId: 99, generation: 10, childOrder: 2, name: 'Lê Viết Quốc Việt', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Đài', bio: 'Con trai ông Lê Viết Bình.' },
+  // ================= FILE 2: NHÁNH ÔNG LÊ VIẾT TRÁP (CON ÔNG LÊ VIẾT ĐĂNG - id: 47) =================
+  // --- Đời thứ 7 ---
+  {
+    id: 127, parentId: 47, generation: 7, childOrder: 9,
+    name: 'Lê Viết Tráp', title: 'Hiển khảo - Thứ tám', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '23-02 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Ngô Thị Chen',
+    spouses: [{ name: 'Trương Thị Chắc', role: 'Vợ chánh', deathDate: '05-11 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái phái Trương Văn ở làng' }],
+    bio: 'Con trai ông Lê Viết Đương.'
+  },
+
+  // --- Đời thứ 8: Các con ông Lê Viết Tráp (id: 127) & bà Trương Thị Chắc ---
+  {
+    id: 128, parentId: 127, generation: 8, childOrder: 1,
+    name: 'Lê Viết Xốt', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '28-04 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Trương Thị Chắc',
+    spouses: [{ name: 'Nguyễn Thị Gái', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Ngọc Nguyên ở làng' }],
+    bio: 'Con trai ông Lê Viết Tráp.'
+  },
+  {
+    id: 129, parentId: 127, generation: 8, childOrder: 2,
+    name: 'Lê Viết Tâm', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '29-02 ÂL', graveLocation: 'Xứ Cầu Hai', motherName: 'Trương Thị Chắc',
     spouses: [
-      { name: 'Trần Thị Sợi', role: 'Vợ chánh', deathDate: '27-07 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái ông Trần Văn Bàn ở làng' },
-      { name: 'Trần Thị Xuyên', role: 'Vợ thứ', deathDate: '05-04 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Trần làng Lại Thế' }
-    ]
+      { name: 'Nguyễn Thị Gái', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Đình Tao ở làng' },
+      { name: 'Nguyễn Thị Lạc', role: 'Vợ thứ', note: 'Con gái Họ Nguyễn xứ Cầu Hai' },
+      { name: 'Nguyễn Thị Xê', role: 'Vợ thứ thứ', note: 'Con gái Họ Nguyễn xứ Cầu Hai' }
+    ],
+    bio: 'Con trai ông Lê Viết Tráp.'
+  },
+  {
+    id: 130, parentId: 127, generation: 8, childOrder: 3,
+    name: 'Lê Viết Ba', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Chắc',
+    spouses: [{ name: 'Hồ Thị Min', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Tráp.'
+  },
+  { id: 131, parentId: 127, generation: 8, childOrder: 4, name: 'Lê Viết Cứ', title: 'Thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Chắc', bio: 'Con trai ông Lê Viết Tráp.' },
+  { id: 132, parentId: 127, generation: 8, childOrder: 5, name: 'Lê Viết Chương', title: 'Thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Chắc', bio: 'Con trai ông Lê Viết Tráp.' },
+  { id: 133, parentId: 127, generation: 8, childOrder: 6, name: 'Lê Thị Gái', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '19-01 ÂL', motherName: 'Trương Thị Chắc', bio: 'Con gái ông Lê Viết Tráp.' },
+  { id: 134, parentId: 127, generation: 8, childOrder: 7, name: 'Lê Thị Cúc', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '19-01 ÂL', motherName: 'Trương Thị Chắc', bio: 'Con gái ông Lê Viết Tráp.' },
+  { id: 135, parentId: 127, generation: 8, childOrder: 8, name: 'Lê Thị Minh', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Chắc', bio: 'Con gái ông Lê Viết Tráp gả người Họ Đinh huyện Điện Bàn.' },
+  { id: 136, parentId: 127, generation: 8, childOrder: 9, name: 'Lê Thị Huê', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Chắc', bio: 'Con gái ông Lê Viết Tráp gả người Họ Trần ở làng.' },
+  { id: 137, parentId: 127, generation: 8, childOrder: 10, name: 'Lê Vô danh chín vị', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Trương Thị Chắc', bio: 'Chín vị mất sớm con ông Lê Viết Tráp.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Xốt (id: 128) & bà Nguyễn Thị Gái ---
+  {
+    id: 138, parentId: 128, generation: 9, childOrder: 1,
+    name: 'Lê Viết Lộc', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Buôn Mê Thuột', motherName: 'Nguyễn Thị Gái',
+    spouses: [
+      { name: 'Ngô Thị Xuồng', role: 'Vợ chánh', note: 'Con gái Họ Ngô người ở làng' },
+      { name: 'Mai Thị Hiếu', role: 'Vợ thứ', note: 'Con gái Họ Mai làng Thanh Hà' }
+    ],
+    bio: 'Con trai ông Lê Viết Xốt.'
+  },
+  { id: 139, parentId: 128, generation: 9, childOrder: 2, name: 'Lê Thị Xuân', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái', bio: 'Con gái ông Lê Viết Xốt gả người Họ Ngô ở làng.' },
+  {
+    id: 140, parentId: 128, generation: 9, childOrder: 3,
+    name: 'Lê Viết Lợi', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái',
+    spouses: [{ name: 'Nguyễn Thị Hải', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn người ở làng' }],
+    bio: 'Con trai ông Lê Viết Xốt.'
+  },
+  { id: 141, parentId: 128, generation: 9, childOrder: 4, name: 'Lê Viết Tư', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '28-09 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Gái', bio: 'Con trai ông Lê Viết Xốt.' },
+  {
+    id: 142, parentId: 128, generation: 9, childOrder: 5,
+    name: 'Lê Viết Năm', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái',
+    spouses: [{ name: 'Trần Thị Bích', role: 'Vợ chánh', note: 'Con gái Họ Trần người ở làng' }],
+    bio: 'Con trai ông Lê Viết Xốt.'
+  },
+  { id: 143, parentId: 128, generation: 9, childOrder: 6, name: 'Lê Viết Vô danh hai vị', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Gái', bio: 'Con Vô danh ông Lê Viết Xốt.' },
+  { id: 144, parentId: 128, generation: 9, childOrder: 7, name: 'Lê Thị Vô danh ba vị', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Gái', bio: 'Con Vô danh ông Lê Viết Xốt.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Tâm (id: 129) ---
+  { id: 145, parentId: 129, generation: 9, childOrder: 1, name: 'Lê Thị Thiệp', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái', bio: 'Con gái ông Lê Viết Tâm lấy chồng ở tỉnh Quảng Ngãi.' },
+  {
+    id: 146, parentId: 129, generation: 9, childOrder: 2,
+    name: 'Lê Viết Can', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái',
+    spouses: [{ name: 'Trần Thị Mừng', role: 'Vợ chánh', note: 'Con gái Họ Trần người ở xứ Cầu Hai' }],
+    bio: 'Con trai ông Lê Viết Tâm.'
+  },
+  {
+    id: 147, parentId: 129, generation: 9, childOrder: 3,
+    name: 'Lê Viết Hải', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Gái',
+    spouses: [{ name: 'Nguyễn Thị Phượng', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn người ở làng' }],
+    bio: 'Con trai ông Lê Viết Tâm.'
+  },
+  {
+    id: 148, parentId: 129, generation: 9, childOrder: 4,
+    name: 'Lê Viết Tuấn', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc',
+    spouses: [{ name: 'Võ Thị Hà', role: 'Vợ chánh', note: 'Con gái Họ Võ xã Quảng Thọ' }],
+    bio: 'Con trai ông Lê Viết Tâm.'
+  },
+  { id: 149, parentId: 129, generation: 9, childOrder: 5, name: 'Lê Viết Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Lạc', bio: 'Con Vô danh ông Lê Viết Tâm.' },
+  {
+    id: 150, parentId: 129, generation: 9, childOrder: 6,
+    name: 'Lê Viết Hùng', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc',
+    spouses: [{ name: 'Trần Thị Ngọc Hạnh', role: 'Vợ chánh', note: 'Con gái Họ Trần người ở xứ Cầu Hai' }],
+    bio: 'Con trai ông Lê Viết Tâm.'
+  },
+  { id: 151, parentId: 129, generation: 9, childOrder: 7, name: 'Lê Thị Phương Anh', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc', bio: 'Con gái ông Lê Viết Tâm.' },
+  {
+    id: 152, parentId: 129, generation: 9, childOrder: 8,
+    name: 'Lê Viết Bảo', title: 'Thứ năm', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc',
+    spouses: [{ name: 'Nguyễn Thị Giáng Hoa', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn người ở tỉnh Gia Lai' }],
+    bio: 'Con trai ông Lê Viết Tâm.'
+  },
+  { id: 153, parentId: 129, generation: 9, childOrder: 9, name: 'Lê Thị Thảo', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc', bio: 'Con gái ông Lê Viết Tâm.' },
+  { id: 154, parentId: 129, generation: 9, childOrder: 10, name: 'Lê Viết Quốc', title: 'Thứ sáu', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lạc', bio: 'Con trai ông Lê Viết Tâm.' },
+  { id: 155, parentId: 129, generation: 9, childOrder: 11, name: 'Lê Thị Thu', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xê', bio: 'Con gái ông Lê Viết Tâm.' },
+  { id: 156, parentId: 129, generation: 9, childOrder: 12, name: 'Lê Viết Trọng', title: 'Thứ bảy', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xê', bio: 'Con trai ông Lê Viết Tâm.' },
+  { id: 157, parentId: 129, generation: 9, childOrder: 13, name: 'Lê Thị Trinh', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xê', bio: 'Con gái ông Lê Viết Tâm.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Ba (id: 130) & bà Hồ Thị Min ---
+  {
+    id: 158, parentId: 130, generation: 9, childOrder: 1,
+    name: 'Lê Viết Bình', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Min',
+    spouses: [{ name: 'Nguyễn Thị Kim Nhớ', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn, xã Thủy Phương' }],
+    bio: 'Con trai ông Lê Viết Ba.'
+  },
+  { id: 159, parentId: 130, generation: 9, childOrder: 2, name: 'Lê Thị Thùy Phương', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Min', bio: 'Con gái ông Lê Viết Ba gả người Họ Lê, thôn Phú Lương A.' },
+  { id: 160, parentId: 130, generation: 9, childOrder: 3, name: 'Lê Thị Thanh Thúy', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hồ Thị Min', bio: 'Con gái ông Lê Viết Ba gả người Họ Lê, xứ Kim Long.' },
+  { id: 161, parentId: 130, generation: 9, childOrder: 4, name: 'Lê Viết Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Hồ Thị Min', bio: 'Con Vô danh ông Lê Viết Ba.' },
+
+  // --- Đời thứ 10 (và Đời 11): Hậu duệ nhánh ông Lê Viết Tráp ---
+  {
+    id: 162, parentId: 138, generation: 10, childOrder: 1,
+    name: 'Lê Viết Thọ', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng',
+    spouses: [{ name: 'Lê Thị Tuyết', role: 'Vợ chánh', note: 'Con gái Họ Lê, xã Quảng Ngạn' }],
+    bio: 'Con trai ông Lê Viết Lộc.'
+  },
+  { id: 163, parentId: 162, generation: 11, childOrder: 1, name: 'Lê Thị Huyền', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Tuyết', bio: 'Con gái ông Lê Viết Thọ.' },
+  { id: 164, parentId: 162, generation: 11, childOrder: 2, name: 'Lê Viết Huỳnh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Tuyết', bio: 'Con trai ông Lê Viết Thọ.' },
+  { id: 165, parentId: 162, generation: 11, childOrder: 3, name: 'Lê Viết Duẩn', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Tuyết', bio: 'Con trai ông Lê Viết Thọ.' },
+  { id: 166, parentId: 138, generation: 10, childOrder: 2, name: 'Lê Thị Nhung', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng', bio: 'Con gái ông Lê Viết Lộc.' },
+  { id: 167, parentId: 138, generation: 10, childOrder: 3, name: 'Lê Viết Phước', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng', bio: 'Con trai ông Lê Viết Lộc.' },
+  { id: 168, parentId: 138, generation: 10, childOrder: 4, name: 'Lê Viết Châu', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng', bio: 'Con trai ông Lê Viết Lộc.' },
+  { id: 169, parentId: 138, generation: 10, childOrder: 5, name: 'Lê Viết Thiện', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng', bio: 'Con trai ông Lê Viết Lộc.' },
+  { id: 170, parentId: 138, generation: 10, childOrder: 6, name: 'Lê Thị Nhàn', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Xuồng', bio: 'Con gái ông Lê Viết Lộc.' },
+  { id: 171, parentId: 138, generation: 10, childOrder: 7, name: 'Lê Viết Cảnh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Mai Thị Hiếu', bio: 'Con trai ông Lê Viết Lộc.' },
+
+  { id: 172, parentId: 140, generation: 10, childOrder: 1, name: 'Lê Viết Thiện', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hải', bio: 'Con trai ông Lê Viết Lợi.' },
+  { id: 173, parentId: 140, generation: 10, childOrder: 2, name: 'Lê Thị Thảo', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hải', bio: 'Con gái ông Lê Viết Lợi.' },
+  { id: 174, parentId: 140, generation: 10, childOrder: 3, name: 'Lê Viết Huy', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hải', bio: 'Con trai ông Lê Viết Lợi.' },
+
+  { id: 175, parentId: 142, generation: 10, childOrder: 1, name: 'Lê Thị Duyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bích', bio: 'Con gái ông Lê Viết Năm.' },
+  { id: 176, parentId: 142, generation: 10, childOrder: 2, name: 'Lê Thị Thanh', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bích', bio: 'Con gái ông Lê Viết Năm.' },
+  { id: 177, parentId: 142, generation: 10, childOrder: 3, name: 'Lê Viết Thịnh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bích', bio: 'Con trai ông Lê Viết Năm.' },
+  { id: 178, parentId: 142, generation: 10, childOrder: 4, name: 'Lê Viết Tiến', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bích', bio: 'Con trai ông Lê Viết Năm.' },
+
+  { id: 179, parentId: 146, generation: 10, childOrder: 1, name: 'Lê Thị Quyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mừng', bio: 'Con gái ông Lê Viết Can.' },
+  { id: 180, parentId: 146, generation: 10, childOrder: 2, name: 'Lê Thị Liên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mừng', bio: 'Con gái ông Lê Viết Can.' },
+  { id: 181, parentId: 146, generation: 10, childOrder: 3, name: 'Lê Viết Cường', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mừng', bio: 'Con trai ông Lê Viết Can.' },
+  { id: 182, parentId: 146, generation: 10, childOrder: 4, name: 'Lê Viết Quyền', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mừng', bio: 'Con trai ông Lê Viết Can.' },
+
+  { id: 183, parentId: 147, generation: 10, childOrder: 1, name: 'Lê Viết Tuân', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Phượng', bio: 'Con trai ông Lê Viết Hải.' },
+  { id: 184, parentId: 147, generation: 10, childOrder: 2, name: 'Lê Thị Diễm My', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Phượng', bio: 'Con gái ông Lê Viết Hải.' },
+  { id: 185, parentId: 147, generation: 10, childOrder: 3, name: 'Lê Viết Vĩnh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Phượng', bio: 'Con trai ông Lê Viết Hải.' },
+
+  { id: 186, parentId: 148, generation: 10, childOrder: 1, name: 'Lê Viết Đức Anh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Hà', bio: 'Con trai ông Lê Viết Tuấn.' },
+
+  { id: 187, parentId: 150, generation: 10, childOrder: 1, name: 'Lê Viết Dũng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ngọc Hạnh', bio: 'Con trai ông Lê Viết Hùng.' },
+  { id: 188, parentId: 150, generation: 10, childOrder: 2, name: 'Lê Viết Hòa', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ngọc Hạnh', bio: 'Con trai ông Lê Viết Hùng.' },
+
+  { id: 189, parentId: 158, generation: 10, childOrder: 1, name: 'Lê Viết Phong', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Nhớ', bio: 'Con trai ông Lê Viết Bình.' },
+  { id: 190, parentId: 158, generation: 10, childOrder: 2, name: 'Lê Thị Uyên Nhi', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Nhớ', bio: 'Con gái ông Lê Viết Bình.' },
+  // ================= FILE 3: NHÁNH ÔNG LÊ VIẾT VÀNG (CON ÔNG LÊ VIẾT EM - id: 55) =================
+  // --- Đời thứ 7 ---
+  {
+    id: 191, parentId: 55, generation: 7, childOrder: 2,
+    name: 'Lê Viết Vàng', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '24-02 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Nguyễn Thị Cần',
+    spouses: [{ name: 'Ngô Thị Thỏ', role: 'Vợ chánh', note: 'Con gái Họ Ngô người ở làng' }],
+    bio: 'Con trai ông Lê Viết Em.'
   },
 
-  // --- Các con ông Lê Viết Trưng (id: 69) ---
-  { id: 104, parentId: 69, generation: 7, childOrder: 1, name: 'Lê Thị Tùng', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Em' },
-  { id: 105, parentId: 69, generation: 7, childOrder: 2, name: 'Lê Thị Bá', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Em' },
-  { id: 106, parentId: 69, generation: 7, childOrder: 3, name: 'Lê Thị Hòe', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bàn' },
+  // --- Đời thứ 8: Các con ông Lê Viết Vàng (id: 191) & bà Ngô Thị Thỏ ---
   {
-    id: 107, parentId: 69, generation: 7, childOrder: 4,
-    name: 'Lê Viết Hanh', title: 'Cửu Phẩm Văn giai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-08 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Bàn',
-    spouses: [{ name: 'Trần Thị Em', role: 'Vợ chánh', deathDate: '07-04 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Trần làng Tây Thành' }]
+    id: 192, parentId: 191, generation: 8, childOrder: 1,
+    name: 'Lê Viết Giao', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '23-04 ÂL', graveLocation: 'Xứ Krông Ana Đaklak', motherName: 'Ngô Thị Thỏ',
+    spouses: [{ name: 'Nguyễn Thị Tuyết', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Đình Tịnh ở làng' }],
+    bio: 'Con trai ông Lê Viết Vàng.'
   },
-  { id: 108, parentId: 69, generation: 7, childOrder: 5, name: 'Lê Thị Liễu', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bàn' },
-  { id: 109, parentId: 69, generation: 7, childOrder: 6, name: 'Lê Viết Khâm', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Đĩ' },
-  { id: 110, parentId: 69, generation: 7, childOrder: 7, name: 'Lê Viết Thông', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Đĩ' },
-  { id: 111, parentId: 69, generation: 7, childOrder: 8, name: 'Lê Thị Hiên', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Thị Dinh' },
-  { id: 112, parentId: 69, generation: 7, childOrder: 9, name: 'Lê Vô danh', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Thị (Khuyết danh)' },
-  // --- Các con ông Lê Viết Khố - húy Khánh (id: 70) & bà Trần Thị Đề ---
-  { id: 113, parentId: 70, generation: 7, childOrder: 1, name: 'Lê Viết Liên', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 114, parentId: 70, generation: 7, childOrder: 2, name: 'Lê Thị Lan', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 115, parentId: 70, generation: 7, childOrder: 3, name: 'Lê Thị Sung', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 116, parentId: 70, generation: 7, childOrder: 4, name: 'Lê Thị Mãng', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 117, parentId: 70, generation: 7, childOrder: 5, name: 'Lê Thị Trinh', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
+  { id: 193, parentId: 191, generation: 8, childOrder: 2, name: 'Lê Thị Kết', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con gái ông Lê Viết Vàng.' },
+  { id: 194, parentId: 191, generation: 8, childOrder: 3, name: 'Lê Viết Giảng', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con trai ông Lê Viết Vàng.' },
+  { id: 195, parentId: 191, generation: 8, childOrder: 4, name: 'Lê Thị Cấu', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con gái ông Lê Viết Vàng.' },
+  { id: 196, parentId: 191, generation: 8, childOrder: 5, name: 'Lê Viết Lẫn', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con trai ông Lê Viết Vàng.' },
+  { id: 197, parentId: 191, generation: 8, childOrder: 6, name: 'Lê Viết Mẫn', title: 'Thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con trai ông Lê Viết Vàng.' },
+  { id: 198, parentId: 191, generation: 8, childOrder: 7, name: 'Lê Viết Sao', title: 'Thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thỏ', bio: 'Con trai ông Lê Viết Vàng.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Giao (id: 192) & bà Nguyễn Thị Tuyết ---
+  { id: 199, parentId: 192, generation: 9, childOrder: 1, name: 'Lê Thị Xuân', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con gái ông Lê Viết Giao.' },
+  { id: 200, parentId: 192, generation: 9, childOrder: 2, name: 'Lê Viết Thu', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con trai ông Lê Viết Giao.' },
+  { id: 201, parentId: 192, generation: 9, childOrder: 3, name: 'Lê Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Tuyết', bio: 'Con Vô danh ông Lê Viết Giao.' },
+  { id: 202, parentId: 192, generation: 9, childOrder: 4, name: 'Lê Viết Đẳng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con trai ông Lê Viết Giao.' },
+  { id: 203, parentId: 192, generation: 9, childOrder: 5, name: 'Lê Viết Trung', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con trai ông Lê Viết Giao.' },
+  { id: 204, parentId: 192, generation: 9, childOrder: 6, name: 'Lê Thị Mai', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con gái ông Lê Viết Giao.' },
+  { id: 205, parentId: 192, generation: 9, childOrder: 7, name: 'Lê Thị Phượng', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con gái ông Lê Viết Giao.' },
+  { id: 206, parentId: 192, generation: 9, childOrder: 8, name: 'Lê Viết Thành', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết', bio: 'Con trai ông Lê Viết Giao.' },
+
+  // ================= FILE 4: NHÁNH ÔNG LÊ VIẾT KHÚC (CON ÔNG LÊ VIẾT NHẤT - id: 56) =================
+  // --- Đời thứ 7 ---
   {
-    id: 118, parentId: 70, generation: 7, childOrder: 6,
-    name: 'Lê Viết Tương', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-07 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Trần Thị Đề',
-    spouses: [{ name: 'Trần Thị Thuần', role: 'Vợ chánh', deathDate: '01-01 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Trần làng Thanh Hà' }]
+    id: 207, parentId: 56, generation: 7, childOrder: 2,
+    name: 'Lê Viết Khúc', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '27-09 ÂL', graveLocation: 'Xứ Mã Cao song hồn', motherName: 'Ngô Thị Cưỡi',
+    spouses: [{ name: 'Nguyễn Thị Xú', role: 'Vợ chánh', deathDate: '28-09 ÂL', graveLocation: 'Xứ Mã Cao song hồn', note: 'Con gái ông Nguyễn Đình Đảnh ở làng' }],
+    bio: 'Con trai ông Lê Viết Nhất.'
   },
-  { id: 119, parentId: 70, generation: 7, childOrder: 7, name: 'Lê Viết Thuận', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 120, parentId: 70, generation: 7, childOrder: 8, name: 'Lê Thị Hồi', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 121, parentId: 70, generation: 7, childOrder: 9, name: 'Lê Viết Huệ', title: 'Con trai thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
-  { id: 122, parentId: 70, generation: 7, childOrder: 10, name: 'Lê Viết Thỉnh', title: 'Con trai thứ năm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề' },
 
-  // --- Các con ông Lê Viết Đằng - húy Tường (id: 71) & bà Huỳnh Thị Sừng ---
-  { id: 123, parentId: 71, generation: 7, childOrder: 1, name: 'Lê Viết Bảy', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Sừng' },
+  // --- Đời thứ 8: Các con ông Lê Viết Khúc (id: 207) & bà Nguyễn Thị Xú ---
+  { id: 208, parentId: 207, generation: 8, childOrder: 1, name: 'Lê Viết Dư', title: 'Thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Xứ Cồn Cờ', motherName: 'Nguyễn Thị Xú', bio: 'Con trai ông Lê Viết Khúc.' },
+  { id: 209, parentId: 207, generation: 8, childOrder: 2, name: 'Lê Viết Vô danh (1)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', graveLocation: 'Xứ Hói Ngang', motherName: 'Nguyễn Thị Xú', bio: 'Con Vô danh ông Lê Viết Khúc.' },
+  { id: 210, parentId: 207, generation: 8, childOrder: 3, name: 'Lê Thị Thỏa', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xú', bio: 'Con gái ông Lê Viết Khúc gả người Họ Đoàn làng Sình.' },
+  { id: 211, parentId: 207, generation: 8, childOrder: 4, name: 'Lê Thị Thuận', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xú', bio: 'Con gái ông Lê Viết Khúc gả người Họ Phan làng An Xuân.' },
+  { id: 212, parentId: 207, generation: 8, childOrder: 5, name: 'Lê Thị Huề', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xú', bio: 'Con gái ông Lê Viết Khúc gả người Họ Lê Văn làng Tây Thành.' },
+  { id: 213, parentId: 207, generation: 8, childOrder: 6, name: 'Lê Viết Vui', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Xú', bio: 'Con trai ông Lê Viết Khúc.' },
+  { id: 214, parentId: 207, generation: 8, childOrder: 7, name: 'Lê Viết Vô danh (2)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Xú', bio: 'Con Vô danh ông Lê Viết Khúc.' },
+  // ================= FILE 5: NHÁNH ÔNG LÊ VIẾT THỈ (CON ÔNG LÊ VIẾT NHẤT - id: 56) =================
+  // --- Đời thứ 7 ---
   {
-    id: 124, parentId: 71, generation: 7, childOrder: 2,
-    name: 'Lê Viết Đạm', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '09-09 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Huỳnh Thị Sừng',
-    spouses: [{ name: 'Nguyễn Thị Đức', role: 'Vợ chánh', deathDate: '17-02 ÂL', graveLocation: 'Xứ Cổ Thành', note: 'Con gái ông Nguyễn Đình Phu ở làng' }]
+    id: 215, parentId: 56, generation: 7, childOrder: 3,
+    name: 'Lê Viết Thỉ', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Cưỡi',
+    spouses: [{ name: 'Nguyễn Thị Dị', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Đình Sanh ở làng' }],
+    bio: 'Con trai ông Lê Viết Nhất.'
   },
-  { id: 125, parentId: 71, generation: 7, childOrder: 3, name: 'Lê Viết Hòa', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Sừng' },
-  { id: 126, parentId: 71, generation: 7, childOrder: 4, name: 'Lê Thị Yến', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Sừng' },
-  { id: 127, parentId: 71, generation: 7, childOrder: 5, name: 'Lê Thị Tước', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Huỳnh Thị Sừng' },
 
-  // --- Các con ông Lê Viết Đệ (id: 72) & bà Phan Thị Quào ---
-  { id: 128, parentId: 72, generation: 7, childOrder: 1, name: 'Lê Thị Loan', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 129, parentId: 72, generation: 7, childOrder: 2, name: 'Lê Thị Tuyên', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 130, parentId: 72, generation: 7, childOrder: 3, name: 'Lê Thị Phàn', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 131, parentId: 72, generation: 7, childOrder: 4, name: 'Lê Viết Nam', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 132, parentId: 72, generation: 7, childOrder: 5, name: 'Lê Thị Đóa', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 133, parentId: 72, generation: 7, childOrder: 6, name: 'Lê Thị Tâm', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Quào' },
-  { id: 134, parentId: 72, generation: 7, childOrder: 7, name: 'Lê Vô danh năm vị', title: 'Năm vị mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Phan Thị Quào' },
-
-  // --- Các con ông Lê Viết Khanh (id: 74) ---
-  { id: 135, parentId: 74, generation: 7, childOrder: 1, name: 'Lê Vô danh (1)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến' },
-  { id: 136, parentId: 74, generation: 7, childOrder: 2, name: 'Lê Thị Trúc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Gả ông Khóa Chung làng Phù Ổ.' },
-  { id: 137, parentId: 74, generation: 7, childOrder: 3, name: 'Lê Vô danh (2)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến' },
-  { id: 138, parentId: 74, generation: 7, childOrder: 4, name: 'Lê Viết Mai', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '08-11 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Nguyễn Thị Quyến' },
-  { id: 139, parentId: 74, generation: 7, childOrder: 5, name: 'Lê Viết Hai', title: 'Con trai thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến' },
-  { id: 140, parentId: 74, generation: 7, childOrder: 6, name: 'Lê Thị Dĩ', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '20-06 ÂL', motherName: 'Nguyễn Thị Quyến', bio: 'Gả ông Nguyễn Ngọc Ái ở làng.' },
-  { id: 141, parentId: 74, generation: 7, childOrder: 7, name: 'Lê Thị Hà', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Gả ông Lê Viễn làng Tây Thành.' },
-  { id: 142, parentId: 74, generation: 7, childOrder: 8, name: 'Lê Thị Quả', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '16-05 ÂL', motherName: 'Nguyễn Thị Quyến' },
+  // --- Đời thứ 8: Các con ông Lê Viết Thỉ (id: 215) & bà Nguyễn Thị Dị ---
+  { id: 216, parentId: 215, generation: 8, childOrder: 1, name: 'Lê Thị Cúc', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ gả người Họ Nguyễn ở làng.' },
+  { id: 217, parentId: 215, generation: 8, childOrder: 2, name: 'Lê Thị Hường', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ gả người Họ Nguyễn ở làng.' },
   {
-    id: 143, parentId: 74, generation: 7, childOrder: 9,
-    name: 'Lê Viết Tảo', title: 'Con trai thứ năm', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến',
+    id: 218, parentId: 215, generation: 8, childOrder: 3,
+    name: 'Lê Viết Thạnh', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị',
+    spouses: [{ name: 'Ngô Thị Lợi', role: 'Vợ chánh', note: 'Con gái Họ Ngô người ở làng' }],
+    bio: 'Con trai ông Lê Viết Thỉ.'
+  },
+  { id: 219, parentId: 215, generation: 8, childOrder: 4, name: 'Lê Thị Hoa', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ gả người Họ Nguyễn ở làng.' },
+  { id: 220, parentId: 215, generation: 8, childOrder: 5, name: 'Lê Thị Hồng', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ gả người Họ Nguyễn ở làng.' },
+  { id: 221, parentId: 215, generation: 8, childOrder: 6, name: 'Lê Thị Hiệp', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '10-05 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ.' },
+  { id: 222, parentId: 215, generation: 8, childOrder: 7, name: 'Lê Thị Vô danh', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Dị', bio: 'Con Vô danh ông Lê Viết Thỉ.' },
+  {
+    id: 223, parentId: 215, generation: 8, childOrder: 8,
+    name: 'Lê Viết Thành', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị',
+    spouses: [{ name: 'Trần Thị Nghĩa', role: 'Vợ chánh', note: 'Con gái Họ Trần xã Quảng Thái' }],
+    bio: 'Con trai ông Lê Viết Thỉ.'
+  },
+  { id: 224, parentId: 215, generation: 8, childOrder: 9, name: 'Lê Thị Phương', title: 'Thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Dị', bio: 'Con gái ông Lê Viết Thỉ gả người Họ Nguyễn ở làng.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Thạnh (id: 218) & bà Ngô Thị Lợi ---
+  { id: 225, parentId: 218, generation: 9, childOrder: 1, name: 'Lê Viết Thanh Sang', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Lợi', bio: 'Con trai ông Lê Viết Thạnh.' },
+  { id: 226, parentId: 218, generation: 9, childOrder: 2, name: 'Lê Thị Tú Trinh', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Lợi', bio: 'Con gái ông Lê Viết Thạnh.' },
+  { id: 227, parentId: 218, generation: 9, childOrder: 3, name: 'Lê Viết Hải Đăng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Lợi', bio: 'Con trai ông Lê Viết Thạnh.' },
+  { id: 228, parentId: 218, generation: 9, childOrder: 4, name: 'Lê Viết Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Ngô Thị Lợi', bio: 'Con Vô danh ông Lê Viết Thạnh.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Thành (id: 223) & bà Trần Thị Nghĩa ---
+  { id: 229, parentId: 223, generation: 9, childOrder: 1, name: 'Lê Thị Kiều Oanh', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nghĩa', bio: 'Con gái ông Lê Viết Thành.' },
+  { id: 230, parentId: 223, generation: 9, childOrder: 2, name: 'Lê Thị Yến Ngọc', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nghĩa', bio: 'Con gái ông Lê Viết Thành.' },
+
+  // ================= FILE 6: NHÁNH ÔNG LÊ VIẾT HANH (CON ÔNG LÊ VIẾT TRƯNG - id: 69) =================
+  // --- Đời thứ 7 ---
+  {
+    id: 231, parentId: 69, generation: 7, childOrder: 1,
+    name: 'Lê Viết Hanh', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Bàn',
+    spouses: [{ name: 'Nguyễn Thị Theo', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Đình Hàm ở làng' }],
+    bio: 'Con trai ông Lê Viết Trưng.'
+  },
+
+  // --- Đời thứ 8: Các con ông Lê Viết Hanh (id: 231) & bà Nguyễn Thị Theo ---
+  { id: 232, parentId: 231, generation: 8, childOrder: 1, name: 'Lê Thị Sâm', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Theo', bio: 'Con gái ông Lê Viết Hanh.' },
+  { id: 233, parentId: 231, generation: 8, childOrder: 2, name: 'Lê Viết Dư', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Theo', bio: 'Con trai ông Lê Viết Hanh.' },
+  { id: 234, parentId: 231, generation: 8, childOrder: 3, name: 'Lê Thị Cháu', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Theo', bio: 'Con gái ông Lê Viết Hanh.' },
+  { id: 235, parentId: 231, generation: 8, childOrder: 4, name: 'Lê Viết Dìa', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Theo', bio: 'Con trai ông Lê Viết Hanh.' },
+  { id: 236, parentId: 231, generation: 8, childOrder: 5, name: 'Lê Thị Dọi', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Theo', bio: 'Con gái ông Lê Viết Hanh.' },
+  // ================= FILE 7: NHÁNH ÔNG LÊ VIẾT TƯƠNG (CON ÔNG LÊ VIẾT KHỐ - HÚY KHÁNH - id: 70) =================
+  // --- Đời thứ 7 ---
+  {
+    id: 237, parentId: 70, generation: 7, childOrder: 2,
+    name: 'Lê Viết Tương', title: 'Hiển khảo - Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đề',
+    spouses: [{ name: 'Đặng Thị Trinh', role: 'Vợ chánh', note: 'Con gái ông Đặng Em làng An Xuân' }],
+    bio: 'Con trai ông Lê Viết Khánh.'
+  },
+
+  // --- Đời thứ 8: Các con ông Lê Viết Tương (id: 237) & bà Đặng Thị Trinh ---
+  {
+    id: 238, parentId: 237, generation: 8, childOrder: 1,
+    name: 'Lê Viết Liêu', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Mộ tại xứ Cần Thơ', motherName: 'Đặng Thị Trinh',
+    spouses: [{ name: 'Trần Thị Sáo', role: 'Vợ chánh', note: 'Con gái Họ Trần xã Thủy Thanh, huyện Hương Thủy' }],
+    bio: 'Con trai ông Lê Viết Tương.'
+  },
+  { id: 239, parentId: 237, generation: 8, childOrder: 2, name: 'Lê Thị An', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh', bio: 'Con gái ông Lê Viết Tương.' },
+  { id: 240, parentId: 237, generation: 8, childOrder: 3, name: 'Lê Viết Vi', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh', bio: 'Con trai ông Lê Viết Tương.' },
+  {
+    id: 241, parentId: 237, generation: 8, childOrder: 4,
+    name: 'Lê Viết Lưu', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh',
+    spouses: [{ name: 'Phạm Thị Vân', role: 'Vợ chánh', note: 'Con gái Họ Phạm xã Phú Thượng, huyện Phú Vang' }],
+    bio: 'Con trai ông Lê Viết Tương.'
+  },
+  { id: 242, parentId: 237, generation: 8, childOrder: 5, name: 'Lê Thị Ngân', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh', bio: 'Con gái ông Lê Viết Tương.' },
+  { id: 243, parentId: 237, generation: 8, childOrder: 6, name: 'Lê Thị Hương', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh', bio: 'Con gái ông Lê Viết Tương gả người Họ Đoàn, xã Quảng Phú.' },
+  {
+    id: 244, parentId: 237, generation: 8, childOrder: 7,
+    name: 'Lê Viết Hải', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Mộ tại xứ Mã Cao', motherName: 'Đặng Thị Trinh',
+    spouses: [{ name: 'Lê Thị Quýt', role: 'Vợ chánh', note: 'Con gái Họ Lê xã Hương Phong, huyện Hương Trà' }],
+    bio: 'Con trai ông Lê Viết Tương.'
+  },
+  {
+    id: 245, parentId: 237, generation: 8, childOrder: 8,
+    name: 'Lê Viết Khương', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh',
+    spouses: [{ name: 'Lê Thị Yến', role: 'Vợ chánh', note: 'Con gái Họ Lê huyện Triệu Phong, tỉnh Quảng Trị' }],
+    bio: 'Con trai ông Lê Viết Tương.'
+  },
+  {
+    id: 246, parentId: 237, generation: 8, childOrder: 9,
+    name: 'Lê Viết Đính', title: 'Thứ năm', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh',
+    spouses: [{ name: 'Lê Thị Nở', role: 'Vợ chánh', note: 'Con gái Họ Lê phường Thuỷ An, TP.Huế' }],
+    bio: 'Con trai ông Lê Viết Tương.'
+  },
+  { id: 247, parentId: 237, generation: 8, childOrder: 10, name: 'Lê Vô danh hai vị', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Đặng Thị Trinh', bio: 'Con Vô danh ông Lê Viết Tương.' },
+  { id: 248, parentId: 237, generation: 8, childOrder: 11, name: 'Lê Thị Ngọc Minh', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Đặng Thị Trinh', bio: 'Con gái ông Lê Viết Tương gả người Họ Thái, xã Quảng Phú.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Liêu (id: 238) & bà Trần Thị Sáo ---
+  { id: 249, parentId: 238, generation: 9, childOrder: 1, name: 'Lê Thị Thanh Diệp', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo', bio: 'Con gái ông Lê Viết Liêu.' },
+  { id: 250, parentId: 238, generation: 9, childOrder: 2, name: 'Lê Thị Mỹ Lệ', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo', bio: 'Con gái ông Lê Viết Liêu gả người Họ Ngô ở tỉnh Cần Thơ.' },
+  { id: 251, parentId: 238, generation: 9, childOrder: 3, name: 'Lê Thị Huyền Trang', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo', bio: 'Con gái ông Lê Viết Liêu.' },
+  {
+    id: 252, parentId: 238, generation: 9, childOrder: 4,
+    name: 'Lê Viết Nguyên Thông', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo',
+    spouses: [{ name: 'Trương Thị Minh Tuệ', role: 'Vợ chánh', note: 'Con gái Họ Trương, tỉnh Quảng Ngãi' }],
+    bio: 'Con trai ông Lê Viết Liêu.'
+  },
+  {
+    id: 253, parentId: 238, generation: 9, childOrder: 5,
+    name: 'Lê Viết Nguyên Phong', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo',
+    spouses: [{ name: 'Lưu Thị Quốc Trinh', role: 'Vợ chánh', note: 'Con gái Họ Lưu, tỉnh Kiên Giang' }],
+    bio: 'Con trai ông Lê Viết Liêu.'
+  },
+  { id: 254, parentId: 238, generation: 9, childOrder: 6, name: 'Lê Thị Như Hảo', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo', bio: 'Con gái ông Lê Viết Liêu.' },
+  {
+    id: 255, parentId: 238, generation: 9, childOrder: 7,
+    name: 'Lê Viết Nguyên Phương', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sáo',
+    spouses: [{ name: 'Võ Thị Tố Nguyên', role: 'Vợ chánh', note: 'Con gái Họ Võ, tỉnh Tiền Giang' }],
+    bio: 'Con trai ông Lê Viết Liêu.'
+  },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Lưu (id: 241) & bà Phạm Thị Vân ---
+  { id: 256, parentId: 241, generation: 9, childOrder: 1, name: 'Lê Viết Vô danh (1)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', graveLocation: 'Mộ tại xứ huyện Phú Vang', motherName: 'Phạm Thị Vân', bio: 'Con trai ông Lê Viết Lưu.' },
+  {
+    id: 257, parentId: 241, generation: 9, childOrder: 2,
+    name: 'Lê Viết Nguyên Phong', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân',
+    spouses: [{ name: 'Bàng Thị Lệ Yến', role: 'Vợ chánh', note: 'Con gái Họ Bàng, nước Trung Quốc' }],
+    bio: 'Con trai ông Lê Viết Lưu.'
+  },
+  { id: 258, parentId: 241, generation: 9, childOrder: 3, name: 'Lê Thị Thanh Bình', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con gái ông Lê Viết Lưu.' },
+  { id: 259, parentId: 241, generation: 9, childOrder: 4, name: 'Lê Thị Kim Ngọc', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con gái ông Lê Viết Lưu gả người Họ Đặng, ở TP. Đà Nẵng.' },
+  { id: 260, parentId: 241, generation: 9, childOrder: 5, name: 'Lê Viết Nguyên Bảo', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con trai ông Lê Viết Lưu.' },
+  { id: 261, parentId: 241, generation: 9, childOrder: 6, name: 'Lê Viết Vô danh (2)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', graveLocation: 'Mộ tại xứ huyện Phú Vang', motherName: 'Phạm Thị Vân', bio: 'Con trai ông Lê Viết Lưu.' },
+  { id: 262, parentId: 241, generation: 9, childOrder: 7, name: 'Lê Thị Thu Sang', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con gái ông Lê Viết Lưu.' },
+  { id: 263, parentId: 241, generation: 9, childOrder: 8, name: 'Lê Viết Nguyên Thành', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con trai ông Lê Viết Lưu.' },
+  { id: 264, parentId: 241, generation: 9, childOrder: 9, name: 'Lê Thị Vô danh', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', graveLocation: 'Mộ tại xứ huyện Phú Vang', motherName: 'Phạm Thị Vân', bio: 'Con gái ông Lê Viết Lưu.' },
+  { id: 265, parentId: 241, generation: 9, childOrder: 10, name: 'Lê Viết Nguyên Tâm', title: 'Thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phạm Thị Vân', bio: 'Con trai ông Lê Viết Lưu.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Hải (id: 244) & bà Lê Thị Quýt ---
+  {
+    id: 266, parentId: 244, generation: 9, childOrder: 1,
+    name: 'Lê Viết Chí Tâm', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Quýt',
+    spouses: [{ name: 'Trần Thị Nở', role: 'Vợ chánh', note: 'Con gái Họ Trần' }],
+    bio: 'Con trai ông Lê Viết Hải.'
+  },
+  {
+    id: 267, parentId: 244, generation: 9, childOrder: 2,
+    name: 'Lê Viết Thiệu Bảo', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Quýt',
+    bio: 'Con trai ông Lê Viết Hải.'
+  },
+  {
+    id: 268, parentId: 244, generation: 9, childOrder: 3,
+    name: 'Lê Viết Minh Chương', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Quýt',
+    spouses: [{ name: 'Lê Thị Ngọc Bích', role: 'Vợ chánh', note: 'Con gái Họ Lê ở xứ Hương Sơ' }],
+    bio: 'Con trai ông Lê Viết Hải.'
+  },
+  { id: 269, parentId: 244, generation: 9, childOrder: 4, name: 'Lê Thị Ngọc Quỳnh Thư', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Quýt', bio: 'Con gái ông Lê Viết Hải gả người Họ HồTrần, Tp.Biên Hoà.' },
+  { id: 270, parentId: 244, generation: 9, childOrder: 5, name: 'Lê Thị Ngọc Quỳnh Tiên', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Quýt', bio: 'Con gái ông Lê Viết Hải gả người Họ Trần.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Khương (id: 245) & bà Lê Thị Yến ---
+  { id: 271, parentId: 245, generation: 9, childOrder: 1, name: 'Lê Thị Xuân Vũ', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Yến', bio: 'Con gái ông Lê Viết Khương.' },
+  { id: 272, parentId: 245, generation: 9, childOrder: 2, name: 'Lê Viết Khôi', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Yến', bio: 'Con trai ông Lê Viết Khương.' },
+
+  // --- Đời thứ 9: Các con ông Lê Viết Đính (id: 246) & bà Lê Thị Nở ---
+  {
+    id: 273, parentId: 246, generation: 9, childOrder: 1,
+    name: 'Lê Viết Cường', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Nở',
+    spouses: [{ name: 'Nguyễn Thị Thuỳ Trang', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn, Tp.Hồ Chí Minh' }],
+    bio: 'Con trai ông Lê Viết Đính.'
+  },
+  { id: 274, parentId: 246, generation: 9, childOrder: 2, name: 'Lê Viết Minh Huy', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Nở', bio: 'Con trai ông Lê Viết Đính.' },
+
+  // --- Đời thứ 10: Hậu duệ nhánh ông Lê Viết Tương ---
+  { id: 275, parentId: 252, generation: 10, childOrder: 1, name: 'Lê Viết Nguyên Khoa', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Minh Tuệ', bio: 'Con trai ông Lê Viết Nguyên Thông.' },
+  { id: 276, parentId: 252, generation: 10, childOrder: 2, name: 'Lê Viết Nguyên Khang', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Minh Tuệ', bio: 'Con trai ông Lê Viết Nguyên Thông.' },
+  { id: 277, parentId: 253, generation: 10, childOrder: 1, name: 'Lê Viết Kim Hoàng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lưu Thị Quốc Trinh', bio: 'Con trai ông Lê Viết Nguyên Phong.' },
+  { id: 278, parentId: 253, generation: 10, childOrder: 2, name: 'Lê Viết An Bình', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lưu Thị Quốc Trinh', bio: 'Con trai ông Lê Viết Nguyên Phong.' },
+  { id: 279, parentId: 255, generation: 10, childOrder: 1, name: 'Lê Viết Nguyên Phước', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Tố Nguyên', bio: 'Con trai ông Lê Viết Nguyên Phương.' },
+  { id: 280, parentId: 257, generation: 10, childOrder: 1, name: 'Lê Viết Lộc', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Bàng Thị Lệ Yến', bio: 'Con trai ông Lê Viết Nguyên Phong.' },
+  { id: 281, parentId: 257, generation: 10, childOrder: 2, name: 'Lê Viết Nguyên Hưng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Bàng Thị Lệ Yến', bio: 'Con trai ông Lê Viết Nguyên Phong.' },
+  { id: 282, parentId: 257, generation: 10, childOrder: 3, name: 'Lê Viết Nguyên Vũ', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Bàng Thị Lệ Yến', bio: 'Con trai ông Lê Viết Nguyên Phong.' },
+  { id: 283, parentId: 266, generation: 10, childOrder: 1, name: 'Lê Thị Ngọc Quỳnh Như', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nở', bio: 'Con gái ông Lê Viết Chí Tâm.' },
+  { id: 284, parentId: 266, generation: 10, childOrder: 2, name: 'Lê Thị Ngọc Quỳnh Nhi', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nở', bio: 'Con gái ông Lê Viết Chí Tâm.' },
+  { id: 285, parentId: 267, generation: 10, childOrder: 1, name: 'Lê Viết Thiệu Thăng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', bio: 'Con trai ông Lê Viết Thiệu Bảo.' },
+  { id: 286, parentId: 267, generation: 10, childOrder: 2, name: 'Lê Viết Thiệu Thắng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', bio: 'Con trai ông Lê Viết Thiệu Bảo.' },
+  { id: 287, parentId: 268, generation: 10, childOrder: 1, name: 'Lê Viết Minh Nhân', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Ngọc Bích', bio: 'Con trai ông Lê Viết Minh Chương.' },
+  { id: 288, parentId: 273, generation: 10, childOrder: 1, name: 'Lê Viết Như Anh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuỳ Trang', bio: 'Con trai ông Lê Viết Cường.' },
+
+  // ================= FILE 8: NHÁNH ÔNG LÊ VIẾT ĐẠM (CON ÔNG LÊ VIẾT ĐẰNG - HÚY TƯỜNG - id: 71) =================
+  // --- Đời thứ 7 ---
+  {
+    id: 289, parentId: 71, generation: 7, childOrder: 2,
+    name: 'Lê Viết Đạm', title: 'Hiển khảo - Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '17-02 ÂL', graveLocation: 'Mộ tại xứ Cổ Thành', motherName: 'Huỳnh Thị Sừng',
+    spouses: [{ name: 'Nguyễn Thị Đức', role: 'Vợ chánh', deathDate: '09-09 ÂL', graveLocation: 'Mộ tại xứ Cổ Thành', note: 'Con gái ông Nguyễn Đình Phu ở làng' }],
+    bio: 'Con trai ông Lê Viết Tường.'
+  },
+
+  // --- Đời thứ 8: Các con ông Lê Viết Đạm (id: 289) & bà Nguyễn Thị Đức ---
+  {
+    id: 290, parentId: 289, generation: 8, childOrder: 1,
+    name: 'Lê Viết Dật', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức',
+    spouses: [{ name: 'Nguyễn Thị Luận', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn làng An Ninh Hạ' }],
+    bio: 'Con trai ông Lê Viết Đạm.'
+  },
+  { id: 291, parentId: 289, generation: 8, childOrder: 2, name: 'Lê Viết Vô danh', title: 'Thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Đức', bio: 'Con trai ông Lê Viết Đạm.' },
+  {
+    id: 292, parentId: 289, generation: 8, childOrder: 3,
+    name: 'Lê Viết Xá', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức',
+    spouses: [{ name: 'Võ Thị Ngọ', role: 'Vợ chánh', note: 'Con gái Họ Võ làng Vân Quật Thượng' }],
+    bio: 'Con trai ông Lê Viết Đạm.'
+  },
+  { id: 293, parentId: 289, generation: 8, childOrder: 4, name: 'Lê Thị Dạ', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức', bio: 'Con gái ông Lê Viết Đạm gả người Họ Nguyễn, làng Bao Vinh.' },
+  { id: 294, parentId: 289, generation: 8, childOrder: 5, name: 'Lê Thị Vá', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức', bio: 'Con gái ông Lê Viết Đạm gả người Họ Lê, làng Nam Thanh.' },
+  { id: 295, parentId: 289, generation: 8, childOrder: 6, name: 'Lê Thị Muổng', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức', bio: 'Con gái ông Lê Viết Đạm gả người Họ Võ, làng Vân Quật Thượng.' },
+  { id: 296, parentId: 289, generation: 8, childOrder: 7, name: 'Lê Thị Dĩa', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức', bio: 'Con gái ông Lê Viết Đạm gả người Họ Phan, làng Kim Đôi.' },
+  {
+    id: 297, parentId: 289, generation: 8, childOrder: 8,
+    name: 'Lê Viết Ngưu', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức',
+    spouses: [{ name: 'Lê Thị Khâm', role: 'Vợ chánh', note: 'Con gái Họ Lê làng Vân Quật Thượng' }],
+    bio: 'Con trai ông Lê Viết Đạm.'
+  },
+
+  // --- Đời thứ 9: Các con của Lê Viết Dật (id: 290), Lê Viết Xá (id: 292), Lê Viết Ngưu (id: 297) ---
+  { id: 298, parentId: 290, generation: 9, childOrder: 1, name: 'Lê Thị Tuyết', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con gái ông Lê Viết Dật.' },
+  { id: 299, parentId: 290, generation: 9, childOrder: 2, name: 'Lê Viết Khiết', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con trai ông Lê Viết Dật.' },
+  { id: 300, parentId: 290, generation: 9, childOrder: 3, name: 'Lê Viết Thuộc', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con trai ông Lê Viết Dật.' },
+  { id: 301, parentId: 290, generation: 9, childOrder: 4, name: 'Lê Thị Lợi', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con gái ông Lê Viết Dật.' },
+  { id: 302, parentId: 290, generation: 9, childOrder: 5, name: 'Lê Viết Lộc', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con trai ông Lê Viết Dật.' },
+  { id: 303, parentId: 290, generation: 9, childOrder: 6, name: 'Lê Thị Xí Chị', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con gái ông Lê Viết Dật.' },
+  { id: 304, parentId: 290, generation: 9, childOrder: 7, name: 'Lê Thị Xí Em', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con gái ông Lê Viết Dật.' },
+  { id: 305, parentId: 290, generation: 9, childOrder: 8, name: 'Lê Viết Cu', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Luận', bio: 'Con trai ông Lê Viết Dật.' },
+
+  { id: 306, parentId: 292, generation: 9, childOrder: 1, name: 'Lê Viết Thương', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con trai ông Lê Viết Xá.' },
+  { id: 307, parentId: 292, generation: 9, childOrder: 2, name: 'Lê Viết Mười', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con trai ông Lê Viết Xá.' },
+  { id: 308, parentId: 292, generation: 9, childOrder: 3, name: 'Lê Thị Vụ', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con gái ông Lê Viết Xá.' },
+  { id: 309, parentId: 292, generation: 9, childOrder: 4, name: 'Lê Viết Bá', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con trai ông Lê Viết Xá.' },
+  { id: 310, parentId: 292, generation: 9, childOrder: 5, name: 'Lê Thị Vân', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con gái ông Lê Viết Xá.' },
+  { id: 311, parentId: 292, generation: 9, childOrder: 6, name: 'Lê Thị Huế', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con gái ông Lê Viết Xá.' },
+  { id: 312, parentId: 292, generation: 9, childOrder: 7, name: 'Lê Thị Hoa', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Ngọ', bio: 'Con gái ông Lê Viết Xá.' },
+
+  { id: 313, parentId: 297, generation: 9, childOrder: 1, name: 'Lê Viết Thành', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Khâm', bio: 'Con trai ông Lê Viết Ngưu.' },
+  { id: 314, parentId: 297, generation: 9, childOrder: 2, name: 'Lê Viết Vô danh', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Lê Thị Khâm', bio: 'Con Vô danh ông Lê Viết Ngưu.' },
+  { id: 315, parentId: 297, generation: 9, childOrder: 3, name: 'Lê Viết Hùng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Khâm', bio: 'Con trai ông Lê Viết Ngưu.' },
+  { id: 316, parentId: 297, generation: 9, childOrder: 4, name: 'Lê Viết Tuấn', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Khâm', bio: 'Con trai ông Lê Viết Ngưu.' },
+  { id: 317, parentId: 297, generation: 9, childOrder: 5, name: 'Lê Thị Hồng', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Khâm', bio: 'Con gái ông Lê Viết Ngưu.' },
+  // ================= FILE 9: NHÁNH ÔNG LÊ VIẾT KHANH (id: 74) =================
+  // --- Đời thứ 7: Các con ông Lê Viết Khanh (id: 74) ---
+  { id: 318, parentId: 74, generation: 7, childOrder: 1, name: 'Lê Vô danh (1)', title: 'Hiển khảo - Thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến', bio: 'Con Vô danh ông Lê Viết Khanh.' },
+  { id: 319, parentId: 74, generation: 7, childOrder: 2, name: 'Lê Thị Trúc', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Con gái ông Lê Viết Khanh gả ông Khóa Chung làng Phù Ổ.' },
+  {
+    id: 320, parentId: 74, generation: 7, childOrder: 3,
+    name: 'Lê Viết Mai', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '08-11 ÂL',
+    graveLocation: '16.534246, 107.549611',
+    graveCoords: 'Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Nguyễn Thị Quyến',
+    bio: 'Con trai ông Lê Viết Khanh.'
+  },
+  { id: 321, parentId: 74, generation: 7, childOrder: 4, name: 'Lê Vô danh (2)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến', bio: 'Con Vô danh ông Lê Viết Khanh.' },
+  { id: 322, parentId: 74, generation: 7, childOrder: 5, name: 'Lê Viết Hai', title: 'Thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Con trai ông Lê Viết Khanh.' },
+  {
+    id: 323, parentId: 74, generation: 7, childOrder: 6,
+    name: 'Lê Thị Dĩ', title: 'Thứ hai', gender: 'Nữ',
+    birthYear: 'Chưa rõ', deathDate: '20-06 ÂL',
+    graveLocation: '16.533783, 107.549440',
+    graveCoords: 'Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Nguyễn Thị Quyến',
+    bio: 'Con gái ông Lê Viết Khanh gả ông Nguyễn Ngọc Ái ở làng.'
+  },
+  { id: 324, parentId: 74, generation: 7, childOrder: 7, name: 'Lê Thị Hà', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Con gái ông Lê Viết Khanh gả ông Lê Viễn làng Tây Thành.' },
+  { id: 325, parentId: 74, generation: 7, childOrder: 8, name: 'Lê Thị Quả', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '16-05 ÂL', motherName: 'Nguyễn Thị Quyến', bio: 'Con gái ông Lê Viết Khanh.' },
+  {
+    id: 326, parentId: 74, generation: 7, childOrder: 9,
+    name: 'Lê Viết Tảo', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ',
+    graveLocation: '16.548885, 107.557800',
+    graveCoords: 'Mã Cao - Làng Phú Ngạn, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Nguyễn Thị Quyến',
     spouses: [
       { name: 'Ngô Thị Hạ', role: 'Vợ chánh', note: 'Con gái tỉnh Hưng Yên (cải giá)' },
       { name: 'Trần Thị Hiệp', role: 'Vợ thứ' }
-    ]
+    ],
+    bio: 'Con trai ông Lê Viết Khanh.'
   },
-  { id: 144, parentId: 74, generation: 7, childOrder: 10, name: 'Lê Vô danh (1 - con bà Quyến)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến' },
-  { id: 145, parentId: 74, generation: 7, childOrder: 11, name: 'Lê Thị Gái', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Gả ông Trần Văn Đóa ở làng.' },
-  { id: 146, parentId: 74, generation: 7, childOrder: 12, name: 'Lê Vô danh (2 - con bà Quyến)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến' },
+  { id: 327, parentId: 74, generation: 7, childOrder: 10, name: 'Lê Vô danh (3)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến', bio: 'Con Vô danh ông Lê Viết Khanh.' },
+  { id: 328, parentId: 74, generation: 7, childOrder: 11, name: 'Lê Thị Gái', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quyến', bio: 'Con gái ông Lê Viết Khanh gả ông Trần Văn Đóa ở làng.' },
+  { id: 329, parentId: 74, generation: 7, childOrder: 12, name: 'Lê Vô danh (4)', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Quyến', bio: 'Con Vô danh ông Lê Viết Khanh.' },
   {
-    id: 147, parentId: 74, generation: 7, childOrder: 13,
-    name: 'Lê Viết Lương', title: 'Con trai thứ sáu', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '04-01 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Quyến',
+    id: 330, parentId: 74, generation: 7, childOrder: 13,
+    name: 'Lê Viết Lương (Tý)', title: 'Thứ năm', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '04-01 ÂL',
+    graveLocation: '16.548699, 107.557512',
+    graveCoords: 'Mã Cao - Làng Phú Ngạn, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Nguyễn Thị Quyến',
     spouses: [
       { name: 'Lê Thị Thu', role: 'Vợ chánh', note: 'Con gái Họ Lê làng Tây Thành (cải giá)' },
-      { name: 'Nguyễn Thị Ảnh', role: 'Vợ thứ', note: 'Con gái Họ Nguyễn, T. Bến Tre (cải giá)' },
+      { name: 'Nguyễn Thị Ảnh', role: 'Vợ thứ', note: 'Con gái Họ Nguyễn, T.Bến Tre (cải giá)' },
       { name: 'Phan Thị Hải', role: 'Vợ thứ thứ', note: 'Con gái Họ Phan người ở làng' }
-    ]
+    ],
+    bio: 'Con trai ông Lê Viết Khanh.'
   },
   {
-    id: 148, parentId: 74, generation: 7, childOrder: 14,
-    name: 'Lê Viết Đài', title: 'Con trai thứ bảy', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Nền Nhà, Bình Dương', motherName: 'Nguyễn Thị Các',
+    id: 331, parentId: 74, generation: 7, childOrder: 14,
+    name: 'Lê Viết Đài', title: 'Thứ sáu', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', graveLocation: 'Mộ tại Nền Nhà, Bình Dương', motherName: 'Nguyễn Thị Các',
     spouses: [
-      { name: 'Trần Thị Trưng', role: 'Vợ chánh', graveLocation: 'Nền Nhà, Bình Dương', note: 'Con gái Họ Trần, T. Bình Dương' },
-      { name: 'Trần Thị Ba', role: 'Vợ thứ' }
-    ]
+      { name: 'Trần Thị Trưng', role: 'Vợ chánh', graveLocation: 'Mộ tại Nền Nhà, Bình Dương', note: 'Con gái Họ Trần, T.Bình Dương' },
+      { name: 'Trần Thị Ba', role: 'Vợ thứ', graveLocation: 'Mộ tại Nền Nhà, Bình Dương' }
+    ],
+    bio: 'Con trai ông Lê Viết Khanh.'
   },
 
-  // --- Các con ông Lê Phước Hành (id: 78) & bà Nguyễn Thị Tuyết ---
+  // --- Đời thứ 8: Các con ông Lê Viết Tảo (id: 326) ---
+  { id: 332, parentId: 326, generation: 8, childOrder: 1, name: 'Lê Thị Thanh Thủy', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '22-12 ÂL', graveLocation: 'Mộ tại tỉnh Hưng Yên', motherName: 'Ngô Thị Hạ', bio: 'Con gái ông Lê Viết Tảo.' },
+  { id: 333, parentId: 326, generation: 8, childOrder: 2, name: 'Lê Thị Thanh Thảo', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Hạ', bio: 'Con gái ông Lê Viết Tảo (Xuất gia).' },
+  { id: 334, parentId: 326, generation: 8, childOrder: 3, name: 'Lê Thị Thanh Thái', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Hạ', bio: 'Con gái ông Lê Viết Tảo gả người Họ Nguyễn Văn ở làng.' },
+  { id: 335, parentId: 326, generation: 8, childOrder: 4, name: 'Lê Thị Thanh Thuận', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Hạ', bio: 'Con gái ông Lê Viết Tảo (Thất lạc).' },
   {
-    id: 149, parentId: 78, generation: 7, childOrder: 1,
-    name: 'Lê Phước Hẹ', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '10-05 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Tuyết',
-    spouses: [{ name: 'Nguyễn Thị Biên', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn người ở làng' }]
+    id: 336, parentId: 326, generation: 8, childOrder: 5,
+    name: 'Lê Viết Thanh', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Hiệp',
+    spouses: [{ name: 'Hoàng Thị Hạnh', role: 'Vợ chánh', note: 'Con gái Họ Hoàng xã Điền Hải' }],
+    bio: 'Con trai ông Lê Viết Tảo.'
+  },
+  { id: 337, parentId: 326, generation: 8, childOrder: 6, name: 'Lê Thị Thanh Thúy', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Hiệp', bio: 'Con gái ông Lê Viết Tảo gả ông Phan Thu làng An Xuân.' },
+  { id: 338, parentId: 326, generation: 8, childOrder: 7, name: 'Lê Thị Thanh Hương', title: 'Thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Hiệp', bio: 'Con gái ông Lê Viết Tảo gả ông Đào Thế xã Quảng Công.' },
+  // --- Đời thứ 8: Các con ông Lê Viết Lương (id: 330) ---
+  { id: 339, parentId: 330, generation: 8, childOrder: 1, name: 'Lê Thị Nữ', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Thu', bio: 'Con gái ông Lê-V-Lương gả người Họ Nguyễn làng Thành Trung.' },
+  {
+    id: 340, parentId: 330, generation: 8, childOrder: 2,
+    name: 'Lê Viết Thiện', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ',
+    graveLocation: '16.534280, 107.549549',
+    graveCoords: 'Cồn Cờ - Làng Phú Lương, Quảng Thành, Quảng Điền, Huế',
+    motherName: 'Lê Thị Thu',
+    bio: 'Con trai ông Lê Viết Lương (Tý).'
   },
   {
-    id: 150, parentId: 78, generation: 7, childOrder: 2,
-    name: 'Lê Phước Ném', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '05-02 ÂL', graveLocation: 'Xứ Cồn Đá, Kim Long', motherName: 'Nguyễn Thị Tuyết',
-    spouses: [{ name: 'Trương Thị Nài', role: 'Vợ chánh', note: 'Con gái Họ Trương làng Kim Đôi' }]
+    id: 341, parentId: 330, generation: 8, childOrder: 3,
+    name: 'Lê Viết Trung', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Thu',
+    spouses: [{ name: 'Phan Thị Liên', role: 'Vợ chánh', note: 'Con gái Họ Phan ở xã Bãi Dâu' }],
+    bio: 'Con trai ông Lê Viết Lương.'
   },
-  // ================= ĐỜI THỨ 8 =================
-  // --- Các con ông Lê Viết Khuôn (id: 86) & bà Nguyễn Thị Thuận ---
-  { id: 151, parentId: 86, generation: 8, childOrder: 1, name: 'Lê Thị Nhơn', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận', bio: 'Gả ông Hà Văn Thước làng Tây Thành.' },
-  { id: 152, parentId: 86, generation: 8, childOrder: 2, name: 'Lê Thị Hòa', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận', bio: 'Gả ông Nguyễn Trung làng Lại Thế.' },
+  { id: 342, parentId: 330, generation: 8, childOrder: 4, name: 'Lê Thị Bích Thảo', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh', bio: 'Con gái ông Lê-V-Lương gả người Họ Huỳnh ở huyện Nhà Bè.' },
+  { id: 343, parentId: 330, generation: 8, childOrder: 5, name: 'Lê Thị Phương Uyên', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh', bio: 'Con gái ông Lê-V-Lương gả người Họ Nguyễn ở tỉnh Bến Tre.' },
+  { id: 344, parentId: 330, generation: 8, childOrder: 6, name: 'Lê Thị Ngọc Hiền', title: 'Thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh', bio: 'Con gái ông Lê-V-Lương gả người Họ Nguyễn ở tỉnh Bến Tre.' },
   {
-    id: 153, parentId: 86, generation: 8, childOrder: 3,
-    name: 'Lê Viết Tắt', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-07 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Thuận',
-    spouses: [{ name: 'Ngô Thị Thiếu', role: 'Vợ chánh', deathDate: '06-12 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Ngô ở làng' }]
-  },
-  { id: 154, parentId: 86, generation: 8, childOrder: 4, name: 'Lê Thị Đàm', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận', bio: 'Gả ông Phan Văn Sạ ở làng.' },
-  { id: 155, parentId: 86, generation: 8, childOrder: 5, name: 'Lê Thị Hiếu', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận', bio: 'Gả ông Trần Văn Đấu ở làng.' },
-  {
-    id: 156, parentId: 86, generation: 8, childOrder: 6,
-    name: 'Lê Viết Phổ', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '29-05 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Thuận',
-    spouses: [{ name: 'Trần Thị Em', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 157, parentId: 86, generation: 8, childOrder: 7, name: 'Lê Thị Bến', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận' },
-  {
-    id: 158, parentId: 86, generation: 8, childOrder: 8,
-    name: 'Lê Viết Duyên', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '07-08 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Thuận',
-    spouses: [{ name: 'Nguyễn Thị Xuân', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Bổn ở làng' }]
-  },
-  { id: 159, parentId: 86, generation: 8, childOrder: 9, name: 'Lê Thị Mỹ', title: 'Con gái thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận', bio: 'Gả ông Lê Văn Chước.' },
-
-  // --- Các con ông Lê Viết Tráp (id: 90) ---
-  { id: 160, parentId: 90, generation: 8, childOrder: 1, name: 'Lê Thị Đỗ', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '09-09 ÂL', motherName: 'Trần Thị Đằng', bio: 'Gả ông Đặng Công Đỏ làng An Thuận.' },
-  { id: 161, parentId: 90, generation: 8, childOrder: 2, name: 'Lê Thị Thành', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '22-09 ÂL', motherName: 'Trần Thị Đằng', bio: 'Gả ông Ngô Hữu Lãm ở làng.' },
-  { id: 162, parentId: 90, generation: 8, childOrder: 3, name: 'Lê Thị Hạnh', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng', bio: 'Gả ông Nguyễn Văn Diện ở làng.' },
-  { id: 163, parentId: 90, generation: 8, childOrder: 4, name: 'Lê Thị Liễu', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng', bio: 'Gả ông Nguyễn Văn Khỉu ở làng.' },
-  { id: 164, parentId: 90, generation: 8, childOrder: 5, name: 'Lê Thị Nghĩa', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng', bio: 'Gả ông Hoàng Văn Yến, T. Thanh Hóa.' },
-  {
-    id: 165, parentId: 90, generation: 8, childOrder: 6,
-    name: 'Lê Viết Trân', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '12-03 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Đang',
-    spouses: [{ name: 'Trần Thị Lại', role: 'Vợ chánh', deathDate: '11-05 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 166, parentId: 90, generation: 8, childOrder: 7, name: 'Lê Viết Tín', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '15-10 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Đang' },
-  // --- Các con ông Lê Viết Vàng (id: 94) & bà Ngô Thị Kỷ ---
-  { id: 167, parentId: 94, generation: 8, childOrder: 1, name: 'Lê Thị Hồng', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Kỷ' },
-  {
-    id: 168, parentId: 94, generation: 8, childOrder: 2,
-    name: 'Lê Viết Trung', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '01-10 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Ngô Thị Kỷ',
-    spouses: [{ name: 'Ngô Thị Gái', role: 'Vợ chánh', deathDate: '18-04 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái ông Ngô Hữu Tuân ở làng' }]
-  },
-  { id: 169, parentId: 94, generation: 8, childOrder: 3, name: 'Lê Thị Ái', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Kỷ' },
-  { id: 170, parentId: 94, generation: 8, childOrder: 4, name: 'Lê Thị Hoa', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Kỷ' },
-
-  // --- Các con ông Lê Viết Khúc (id: 102) & bà Trần Thị Thuần ---
-  { id: 171, parentId: 102, generation: 8, childOrder: 1, name: 'Lê Thị Niệm', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  { id: 172, parentId: 102, generation: 8, childOrder: 2, name: 'Lê Vô danh', title: 'Mất sớm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Trần Thị Thuần' },
-  { id: 173, parentId: 102, generation: 8, childOrder: 3, name: 'Lê Thị Lụa', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  { id: 174, parentId: 102, generation: 8, childOrder: 4, name: 'Lê Thị Lan', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  { id: 175, parentId: 102, generation: 8, childOrder: 5, name: 'Lê Viết Nhĩ', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '12-03 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Trần Thị Thuần' },
-  {
-    id: 176, parentId: 102, generation: 8, childOrder: 6,
-    name: 'Lê Viết Chuyên', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần',
-    spouses: [{ name: 'Trần Thị Kiều Loan', role: 'Vợ chánh', note: 'Con gái ông Trần Duy Phương, T. Quảng Trị' }]
-  },
-  { id: 177, parentId: 102, generation: 8, childOrder: 7, name: 'Lê Thị Mai', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  {
-    id: 178, parentId: 102, generation: 8, childOrder: 8,
-    name: 'Lê Viết Dũng', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần',
-    spouses: [{ name: 'Nguyễn Thị Kim Thành', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Ngọc Tùng ở làng' }]
-  },
-  { id: 179, parentId: 102, generation: 8, childOrder: 9, name: 'Lê Thị Thanh', title: 'Con gái thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-
-  // --- Các con ông Lê Viết Thỉ (id: 103) ---
-  { id: 180, parentId: 103, generation: 8, childOrder: 1, name: 'Lê Thị Phấn', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sợi' },
-  {
-    id: 181, parentId: 103, generation: 8, childOrder: 2,
-    name: 'Lê Viết Hưng', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '07-04 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Trần Thị Sợi',
-    spouses: [{ name: 'Trần Thị Lời', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-  {
-    id: 182, parentId: 103, generation: 8, childOrder: 3,
-    name: 'Lê Viết Thọ', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '12-08 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Trần Thị Sợi',
-    spouses: [{ name: 'Phan Thị Lợi', role: 'Vợ chánh', note: 'Con gái Họ Phan ở làng' }]
-  },
-  {
-    id: 183, parentId: 103, generation: 8, childOrder: 4,
-    name: 'Lê Viết Thanh', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sợi',
-    spouses: [{ name: 'Lê Thị Thúy Vân', role: 'Vợ chánh', note: 'Con gái ông Lê Thanh Nhàn, Q. Phú Nhuận, TP. HCM' }]
-  },
-  { id: 184, parentId: 103, generation: 8, childOrder: 5, name: 'Lê Thị Trâm', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên' },
-  {
-    id: 185, parentId: 103, generation: 8, childOrder: 6,
-    name: 'Lê Viết Chánh', title: 'Con trai thứ tư', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên',
-    spouses: [{ name: 'Trần Thị Thu Hương', role: 'Vợ chánh', note: 'Con gái ông Trần Duy Đàn ở làng' }]
-  },
-  { id: 186, parentId: 103, generation: 8, childOrder: 7, name: 'Lê Thị Bê', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên' },
-  { id: 187, parentId: 103, generation: 8, childOrder: 8, name: 'Lê Thị Cúc', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên' },
-  { id: 188, parentId: 103, generation: 8, childOrder: 9, name: 'Lê Thị Hạnh', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên' },
-  { id: 189, parentId: 103, generation: 8, childOrder: 10, name: 'Lê Thị Hiếu', title: 'Con gái thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Xuyên' },
-
-  // --- Các con ông Lê Viết Hanh (id: 107) & bà Trần Thị Em ---
-  { id: 190, parentId: 107, generation: 8, childOrder: 1, name: 'Lê Thị Bến', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '12-03 ÂL', motherName: 'Trần Thị Em', bio: 'Gả ông Hà Văn Thước.' },
-  { id: 191, parentId: 107, generation: 8, childOrder: 2, name: 'Lê Thị Thiện', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '07-07 ÂL', motherName: 'Trần Thị Em', bio: 'Gả ông Nguyễn Văn Lãm.' },
-  {
-    id: 192, parentId: 107, generation: 8, childOrder: 3,
-    name: 'Lê Viết Trừng', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '13-02 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Ngô Thị Rớt', role: 'Vợ chánh', deathDate: '01-03 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Ngô ở làng' }]
-  },
-  {
-    id: 193, parentId: 107, generation: 8, childOrder: 4,
-    name: 'Lê Viết Thặng', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '14-12 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Võ Thị Kiêm', role: 'Vợ chánh', deathDate: '02-01 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Võ ở làng' }]
-  },
-  {
-    id: 194, parentId: 107, generation: 8, childOrder: 5,
-    name: 'Lê Viết Kỉnh', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-08 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Trần Thị Đằng', role: 'Vợ chánh', deathDate: '13-05 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 195, parentId: 107, generation: 8, childOrder: 6, name: 'Lê Thị Lại', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em', bio: 'Gả ông Nguyễn Văn Trụ.' },
-  // --- Các con ông Lê Viết Tương (id: 118) & bà Trần Thị Thuần ---
-  { id: 196, parentId: 118, generation: 8, childOrder: 1, name: 'Lê Thị Nhỏ', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  {
-    id: 197, parentId: 118, generation: 8, childOrder: 2,
-    name: 'Lê Viết Cẩn', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần',
-    spouses: [{ name: 'Nguyễn Thị Thuận', role: 'Vợ chánh', deathDate: '28-04 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 198, parentId: 118, generation: 8, childOrder: 3, name: 'Lê Thị Nhị', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-  { id: 199, parentId: 118, generation: 8, childOrder: 4, name: 'Lê Viết Liễn', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '07-04 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Trần Thị Thuần' },
-  { id: 200, parentId: 118, generation: 8, childOrder: 5, name: 'Lê Thị Mỹ', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thuần' },
-
-  // --- Các con ông Lê Viết Đạm (id: 124) & bà Nguyễn Thị Đức ---
-  { id: 201, parentId: 124, generation: 8, childOrder: 1, name: 'Lê Thị Trú', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '20-02 ÂL', motherName: 'Nguyễn Thị Đức' },
-  { id: 202, parentId: 124, generation: 8, childOrder: 2, name: 'Lê Thị Thìn', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: '03-04 ÂL', motherName: 'Nguyễn Thị Đức' },
-  { id: 203, parentId: 124, generation: 8, childOrder: 3, name: 'Lê Thị Tuyết', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức', bio: 'Gả ông Hà Văn Nhung làng Tây Thành.' },
-  {
-    id: 204, parentId: 124, generation: 8, childOrder: 4,
-    name: 'Lê Viết Triêm', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '17-01 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Nguyễn Thị Đức',
-    spouses: [{ name: 'Ngô Thị Vui', role: 'Vợ chánh', deathDate: '27-07 ÂL', graveLocation: 'Xứ Cổ Thành', note: 'Con gái Họ Ngô ở làng' }]
-  },
-  { id: 205, parentId: 124, generation: 8, childOrder: 5, name: 'Lê Viết Chiêu', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '10-08 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Nguyễn Thị Đức' },
-  { id: 206, parentId: 124, generation: 8, childOrder: 6, name: 'Lê Thị Thu', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức' },
-  { id: 207, parentId: 124, generation: 8, childOrder: 7, name: 'Lê Viết Sâm', title: 'Con trai thứ ba', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: '07-04 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Nguyễn Thị Đức' },
-  { id: 208, parentId: 124, generation: 8, childOrder: 8, name: 'Lê Thị Đào', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đức' },
-  {
-    id: 209, parentId: 124, generation: 8, childOrder: 9,
-    name: 'Lê Viết Trạc', title: 'Con trai thứ tư', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '09-09 ÂL', graveLocation: 'Xứ Cổ Thành', motherName: 'Nguyễn Thị Đức',
-    spouses: [{ name: 'Nguyễn Thị Nậy', role: 'Vợ chánh', deathDate: '15-05 ÂL', graveLocation: 'Xứ Cổ Thành', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-
-  // --- Các con ông Lê Viết Tảo (id: 143) ---
-  { id: 210, parentId: 143, generation: 8, childOrder: 1, name: 'Lê Thị Mỹ Lệ', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Hạ', bio: 'Gả ông Đặng Văn Bỉnh ở Hà Nội.' },
-  { id: 211, parentId: 143, generation: 8, childOrder: 2, name: 'Lê Viết Tỷ', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Hạ' },
-  {
-    id: 212, parentId: 143, generation: 8, childOrder: 3,
-    name: 'Lê Viết Trụ', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-07 ÂL', graveLocation: 'Xứ Cồn Cờ', motherName: 'Trần Thị Hiệp',
-    spouses: [{ name: 'Lê Thị Vui', role: 'Vợ chánh', deathDate: '25-07 ÂL', graveLocation: 'Xứ Cồn Cờ', note: 'Con gái ông Lê Thanh Nhàn ở làng' }]
-  },
-
-  // --- Các con ông Lê Viết Lương (id: 147) - Nửa đầu ---
-  { id: 213, parentId: 147, generation: 8, childOrder: 1, name: 'Lê Thị Thân', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Thu', bio: 'Gả ông Trần Văn Nhung làng Thanh Hà.' },
-  {
-    id: 214, parentId: 147, generation: 8, childOrder: 2,
-    name: 'Lê Viết Khương', title: 'Con trai thứ nhất', gender: 'Nam',
+    id: 345, parentId: 330, generation: 8, childOrder: 7,
+    name: 'Lê Viết Lành', title: 'Thứ ba', gender: 'Nam',
     birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh',
-    spouses: [{ name: 'Nguyễn Thị Bê', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Thừa Thí làng Thế Lại' }]
+    spouses: [{ name: 'Lê Thị Hồng Gấm', role: 'Vợ chánh', note: 'Con gái Họ Lê ở huyện Nhà Bè' }],
+    bio: 'Con trai ông Lê Viết Lương.'
   },
-  { id: 215, parentId: 147, generation: 8, childOrder: 3, name: 'Lê Thị Hòa', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh', bio: 'Gả ông Nguyễn Văn Nam, Q. 3, TP. HCM.' },
-  {
-    id: 216, parentId: 147, generation: 8, childOrder: 4,
-    name: 'Lê Viết Hoài', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh',
-    spouses: [{ name: 'Nguyễn Thị Thu Hương', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Văn Tư, P. Gia Định, TP. HCM' }]
-  },
-  // --- Các con ông Lê Viết Lương (id: 147) - Nửa sau ---
-  { id: 217, parentId: 147, generation: 8, childOrder: 5, name: 'Lê Thị Hồng Điệp', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hải' },
-  { id: 218, parentId: 147, generation: 8, childOrder: 6, name: 'Lê Thị Hoa Lài', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hải' },
-  {
-    id: 219, parentId: 147, generation: 8, childOrder: 7,
-    name: 'Lê Viết Đầy', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hải',
-    spouses: [{ name: 'Nguyễn Thị Xuyến', role: 'Vợ chánh', note: 'Con gái ông Nguyễn Đặng Ái ở làng' }]
-  },
+  { id: 346, parentId: 330, generation: 8, childOrder: 8, name: 'Lê Thị Hồng Hạnh', title: 'Thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Ảnh', bio: 'Con gái ông Lê-V-Lương gả người Họ Mai ở huyện Nhà Bè.' },
+  { id: 347, parentId: 330, generation: 8, childOrder: 9, name: 'Lê Thị Trinh', title: 'Thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hải', bio: 'Con gái ông Lê-V-Lương gả người Họ Nguyễn làng An Thành.' },
+  { id: 348, parentId: 330, generation: 8, childOrder: 10, name: 'Lê Viết Duy', title: 'Thứ tư', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hải', bio: 'Con trai ông Lê Viết Lương.' },
 
-  // --- Các con ông Lê Viết Đài (id: 148) ---
+  // --- Đời thứ 8: Các con ông Lê Viết Đài (id: 331) ---
+  { id: 349, parentId: 331, generation: 8, childOrder: 1, name: 'Lê Thị Tâm Loan', title: 'Con bà chánh', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng', bio: 'Con gái ông Lê Viết Đài (Con bà chánh).' },
+  { id: 350, parentId: 331, generation: 8, childOrder: 2, name: 'Lê Viết Văn Phụng', title: 'Con bà chánh', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng', bio: 'Con trai ông Lê Viết Đài (Con bà chánh).' },
   {
-    id: 220, parentId: 148, generation: 8, childOrder: 1,
-    name: 'Lê Viết Lầu', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng',
-    spouses: [{ name: 'Nguyễn Thị Lan', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn, T. Bình Dương' }]
-  },
-  { id: 221, parentId: 148, generation: 8, childOrder: 2, name: 'Lê Thị Hơn', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng' },
-  { id: 222, parentId: 148, generation: 8, childOrder: 3, name: 'Lê Thị Gái', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng' },
-  { id: 223, parentId: 148, generation: 8, childOrder: 4, name: 'Lê Thị Gái Nhỏ', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng' },
-  { id: 224, parentId: 148, generation: 8, childOrder: 5, name: 'Lê Thị Bảy', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng' },
-  {
-    id: 225, parentId: 148, generation: 8, childOrder: 6,
-    name: 'Lê Viết Thắng', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng',
-    spouses: [{ name: 'Trần Thị Thê', role: 'Vợ chánh' }]
-  },
-  { id: 226, parentId: 148, generation: 8, childOrder: 7, name: 'Lê Thị Kim Lan', title: 'Con gái thứ năm', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Trưng' },
-  { id: 227, parentId: 148, generation: 8, childOrder: 8, name: 'Lê Thị Mai', title: 'Con gái thứ sáu', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba' },
-  { id: 228, parentId: 148, generation: 8, childOrder: 9, name: 'Lê Thị Lệ', title: 'Con gái thứ bảy', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba' },
-  { id: 229, parentId: 148, generation: 8, childOrder: 10, name: 'Lê Thị Bích Liên', title: 'Con gái thứ tám', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba' },
-  { id: 230, parentId: 148, generation: 8, childOrder: 11, name: 'Lê Thị Bích Thủy', title: 'Con gái thứ chín', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba' },
-  {
-    id: 231, parentId: 148, generation: 8, childOrder: 12,
-    name: 'Lê Viết Chánh', title: 'Con trai thứ ba', gender: 'Nam',
+    id: 351, parentId: 331, generation: 8, childOrder: 3,
+    name: 'Lê Viết Văn Minh', title: 'Thứ nhất (Con bà thứ)', gender: 'Nam',
     birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba',
-    spouses: [{ name: 'Nguyễn Thị Thủy', role: 'Vợ chánh' }]
-  },
-  { id: 232, parentId: 148, generation: 8, childOrder: 13, name: 'Lê Thị Bích Phượng', title: 'Con gái thứ mười', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba' },
-
-  // --- Các con ông Lê Phước Hẹ (id: 149) & bà Nguyễn Thị Biên ---
-  {
-    id: 233, parentId: 149, generation: 8, childOrder: 1,
-    name: 'Lê Phước An', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '01-10 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Nguyễn Thị Biên',
-    spouses: [{ name: 'Phan Thị Lạng', role: 'Vợ chánh', deathDate: '12-03 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Phan ở làng' }]
-  },
-
-  // --- Các con ông Lê Phước Ném (id: 150) & bà Trương Thị Nài ---
-  {
-    id: 234, parentId: 150, generation: 8, childOrder: 1,
-    name: 'Lê Phước Đống', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '12-03 ÂL', graveLocation: 'Xứ Cồn Đá, Kim Long', motherName: 'Trương Thị Nài',
-    spouses: [{ name: 'Nguyễn Thị Quế', role: 'Vợ chánh', deathDate: '27-07 ÂL', graveLocation: 'Xứ Cồn Đá, Kim Long', note: 'Con gái Họ Nguyễn làng An Bình' }]
-  },
-  { id: 235, parentId: 150, generation: 8, childOrder: 2, name: 'Lê Thị Gái', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Nài' },
-  // ================= ĐỜI THỨ 9 =================
-  // --- Các con ông Lê Viết Tắt (id: 153) & bà Ngô Thị Thiếu ---
-  { id: 236, parentId: 153, generation: 9, childOrder: 1, name: 'Lê Thị Lành', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu', bio: 'Gả ông Võ Văn Phụng làng Thủ Lễ.' },
-  {
-    id: 237, parentId: 153, generation: 9, childOrder: 2,
-    name: 'Lê Viết Trợ', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: '27-07 ÂL', graveLocation: 'Xứ Mã Cao', motherName: 'Ngô Thị Thiếu',
-    spouses: [{ name: 'Ngô Thị Em', role: 'Vợ chánh', deathDate: '12-03 ÂL', graveLocation: 'Xứ Mã Cao', note: 'Con gái Họ Ngô ở làng' }]
-  },
-  { id: 238, parentId: 153, generation: 9, childOrder: 3, name: 'Lê Thị Mỹ', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu', bio: 'Gả ông Đặng Công Đỏ làng An Thuận.' },
-  {
-    id: 239, parentId: 153, generation: 9, childOrder: 4,
-    name: 'Lê Viết Tứ', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu',
-    spouses: [{ name: 'Nguyễn Thị Em', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 240, parentId: 153, generation: 9, childOrder: 5, name: 'Lê Thị Đỗ', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu' },
-  { id: 241, parentId: 153, generation: 9, childOrder: 6, name: 'Lê Thị Hạnh', title: 'Con gái thứ tư', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu' },
-  {
-    id: 242, parentId: 153, generation: 9, childOrder: 7,
-    name: 'Lê Viết Hòa', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu',
-    spouses: [{ name: 'Trần Thị Thu', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
+    spouses: [{ name: 'Thị', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Đài (Con bà thứ).'
   },
   {
-    id: 243, parentId: 153, generation: 9, childOrder: 8,
-    name: 'Lê Viết Hòa Hiệp', title: 'Con trai thứ tư', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Thiếu',
-    spouses: [{ name: 'Lê Thị Lệ', role: 'Vợ chánh', note: 'Con gái Họ Lê làng Tây Thành' }]
+    id: 352, parentId: 331, generation: 8, childOrder: 4,
+    name: 'Lê Viết Văn Tâm', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba',
+    spouses: [{ name: 'Lê Thị Diệp', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Đài.'
   },
-
-  // --- Các con ông Lê Viết Phổ (id: 156) & bà Trần Thị Em ---
-  { id: 244, parentId: 156, generation: 9, childOrder: 1, name: 'Lê Thị Thành', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em' },
+  { id: 353, parentId: 331, generation: 8, childOrder: 5, name: 'Lê Thị Thu Vân', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba', bio: 'Con gái ông Lê Viết Đài gả người Họ …' },
   {
-    id: 245, parentId: 156, generation: 9, childOrder: 2,
-    name: 'Lê Viết Thọ', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Nguyễn Thị Lợi', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
+    id: 354, parentId: 331, generation: 8, childOrder: 6,
+    name: 'Lê Viết Văn Long', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba',
+    spouses: [{ name: 'Trần Thị Huê', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Đài.'
   },
-  { id: 246, parentId: 156, generation: 9, childOrder: 3, name: 'Lê Thị Hòa', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em' },
   {
-    id: 247, parentId: 156, generation: 9, childOrder: 4,
-    name: 'Lê Viết Phú', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Trần Thị Hoa', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
+    id: 355, parentId: 331, generation: 8, childOrder: 7,
+    name: 'Lê Viết Văn Châu', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba',
+    spouses: [{ name: 'Nguyễn Thị Kim Hà', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Đài.'
   },
-  { id: 248, parentId: 156, generation: 9, childOrder: 5, name: 'Lê Thị Hạnh', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em' },
   {
-    id: 249, parentId: 156, generation: 9, childOrder: 6,
-    name: 'Lê Viết Quý', title: 'Con trai thứ ba', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Em',
-    spouses: [{ name: 'Nguyễn Thị Lan', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn làng Tây Thành' }]
+    id: 356, parentId: 331, generation: 8, childOrder: 8,
+    name: 'Lê Viết Văn Tuấn', title: 'Thứ năm', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba',
+    spouses: [{ name: 'Thị', role: 'Vợ chánh' }],
+    bio: 'Con trai ông Lê Viết Đài.'
   },
+  { id: 357, parentId: 331, generation: 8, childOrder: 9, name: 'Lê Thị Cẩm Loan', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ba', bio: 'Con gái ông Lê Viết Đài gả người Họ …' },
 
-  // --- Các con ông Lê Viết Duyên (id: 158) & bà Nguyễn Thị Xuân ---
+  // --- Đời thứ 9: Hậu duệ nhánh ông Lê Viết Khanh ---
+  { id: 358, parentId: 336, generation: 9, childOrder: 1, name: 'Lê Vô danh (1)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Hoàng Thị Hạnh' },
+  { id: 359, parentId: 336, generation: 9, childOrder: 2, name: 'Lê Viết Hoàng Long', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hoàng Thị Hạnh' },
+  { id: 360, parentId: 336, generation: 9, childOrder: 3, name: 'Lê Vô danh (2)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Hoàng Thị Hạnh' },
+  { id: 361, parentId: 336, generation: 9, childOrder: 4, name: 'Lê Thị Hoàng Thảo My', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Hoàng Thị Hạnh' },
+  { id: 362, parentId: 341, generation: 9, childOrder: 1, name: 'Lê Thị Thanh Hoa', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Liên' },
+  { id: 363, parentId: 341, generation: 9, childOrder: 2, name: 'Lê Thị Huyền Trang', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Liên' },
+  { id: 364, parentId: 341, generation: 9, childOrder: 3, name: 'Lê Viết Nhật Anh', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Liên' },
+  { id: 365, parentId: 345, generation: 9, childOrder: 1, name: 'Lê Thị Hồng Ngọc', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Hồng Gấm' },
+  { id: 366, parentId: 351, generation: 9, childOrder: 1, name: 'Mary Lan Lê', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Thị' },
+  { id: 367, parentId: 351, generation: 9, childOrder: 2, name: 'Rose Kim Lê', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Thị' },
+  { id: 368, parentId: 352, generation: 9, childOrder: 1, name: 'Lê Viết Phước Toàn', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Diệp' },
+  { id: 369, parentId: 352, generation: 9, childOrder: 2, name: 'Lê Thị Xuân', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Diệp' },
+  { id: 370, parentId: 352, generation: 9, childOrder: 3, name: 'Lê Viết Trí Thành', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Diệp' },
+  { id: 371, parentId: 354, generation: 9, childOrder: 1, name: 'Lê Viết Điềm', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Huê' },
+  { id: 372, parentId: 354, generation: 9, childOrder: 2, name: 'Lê Thị Thu Nhiên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Huê' },
+  { id: 373, parentId: 355, generation: 9, childOrder: 1, name: 'Lê Viết Xuân Hòa', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Hà' },
+  { id: 374, parentId: 355, generation: 9, childOrder: 2, name: 'Lê Viết Văn Bình', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Hà' },
+  { id: 375, parentId: 356, generation: 9, childOrder: 1, name: 'Lê Viết Minh Tú', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Thị' },
+  { id: 376, parentId: 356, generation: 9, childOrder: 2, name: 'Lê Viết Tuấn Khang', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Thị' },
+  // ================= FILE 10: NHÁNH ÔNG LÊ PHƯỚC HÀNH (id: 78) =================
+  // --- Đời thứ 7: Các con ông Lê Phước Hành (id: 78) & bà Nguyễn Thị Tuyết ---
   {
-    id: 250, parentId: 158, generation: 9, childOrder: 1,
-    name: 'Lê Viết Tuấn', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuân',
-    spouses: [{ name: 'Nguyễn Thị Hồng', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
+    id: 377, parentId: 78, generation: 7, childOrder: 1,
+    name: 'Lê Phước Hẹ', title: 'Hiển khảo - Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Tuyết',
+    spouses: [{ name: 'Nguyễn Thị Biên', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn người ở làng' }],
+    bio: 'Con trai ông Lê Phước Hành.'
   },
-  { id: 251, parentId: 158, generation: 9, childOrder: 2, name: 'Lê Thị Thảo', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuân' },
-  { id: 252, parentId: 158, generation: 9, childOrder: 3, name: 'Lê Thị Phương', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuân' },
   {
-    id: 253, parentId: 158, generation: 9, childOrder: 4,
-    name: 'Lê Viết Hùng', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuân',
-    spouses: [{ name: 'Trần Thị Mai', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
+    id: 378, parentId: 78, generation: 7, childOrder: 2,
+    name: 'Lê Phước Ném', title: 'Thứ Hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '10-05 ÂL & 05-02 ÂL', graveLocation: 'Mộ tại xứ Mã Cao & xứ Cồn Đá, Kim Long', motherName: 'Nguyễn Thị Tuyết',
+    spouses: [{ name: 'Trương Thị Nài', role: 'Vợ chánh', note: 'Con gái Họ Trương làng Kim Đôi' }],
+    bio: 'Con trai ông Lê Phước Hành.'
   },
 
-  // --- Các con ông Lê Viết Trân (id: 165) & bà Trần Thị Lại ---
-  { id: 254, parentId: 165, generation: 9, childOrder: 1, name: 'Lê Thị Lệ', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lại', bio: 'Gả ông Trần Văn Đấu ở làng.' },
+  // --- Đời thứ 8: Các con ông Lê Phước Hẹ (id: 377) & Lê Phước Ném (id: 378) ---
+  { id: 379, parentId: 377, generation: 8, childOrder: 1, name: 'Lê Phước Vô danh', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Nguyễn Thị Biên', bio: 'Con Vô danh ông Lê Phước Hẹ.' },
+  { id: 380, parentId: 377, generation: 8, childOrder: 2, name: 'Lê Thị Mừng', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Biên', bio: 'Con gái ông Lê Phước Hẹ gả người Họ Nguyễn ở làng.' },
+  { id: 381, parentId: 377, generation: 8, childOrder: 3, name: 'Lê Thị Ca', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Biên', bio: 'Con gái ông Lê Phước Hẹ gả người Họ Trần ở làng.' },
   {
-    id: 255, parentId: 165, generation: 9, childOrder: 2,
-    name: 'Lê Viết Liêu', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lại',
-    spouses: [{ name: 'Nguyễn Thị Hoa', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
+    id: 382, parentId: 378, generation: 8, childOrder: 1,
+    name: 'Lê Phước An', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: '01-10 ÂL', graveLocation: 'Mộ tại xứ Cồn Đá, Kim Long', motherName: 'Trương Thị Nài',
+    spouses: [{ name: 'Trần Thị Sẻ', role: 'Vợ chánh', note: 'Con gái Họ Trần ở xứ Kim Long' }],
+    bio: 'Con trai ông Lê Phước Ném.'
   },
-  { id: 256, parentId: 165, generation: 9, childOrder: 3, name: 'Lê Thị Loan', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lại' },
+  { id: 383, parentId: 378, generation: 8, childOrder: 2, name: 'Lê Thị Thuận', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Nài', bio: 'Con gái ông Lê Phước Ném (Thất lạc).' },
+
+  // --- Đời thứ 9: Các con ông Lê Phước An (id: 382) & bà Trần Thị Sẻ ---
   {
-    id: 257, parentId: 165, generation: 9, childOrder: 4,
-    name: 'Lê Viết Lưu', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lại',
-    spouses: [{ name: 'Trần Thị Lan', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
+    id: 384, parentId: 382, generation: 9, childOrder: 1,
+    name: 'Lê Viết Quát', title: 'Thứ nhất', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ',
+    spouses: [{ name: 'Nguyễn Thị Đẩu', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở xứ Kim Long' }],
+    bio: 'Con trai ông Lê Phước An.'
   },
-  { id: 258, parentId: 165, generation: 9, childOrder: 5, name: 'Lê Thị Liên', title: 'Con gái thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lại' },
-  // --- Các con ông Lê Viết Trung (id: 168) & bà Ngô Thị Gái ---
-  { id: 259, parentId: 168, generation: 9, childOrder: 1, name: 'Lê Thị Huyền Trang', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Gái' },
   {
-    id: 260, parentId: 168, generation: 9, childOrder: 2,
-    name: 'Lê Viết Minh', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Gái',
-    spouses: [{ name: 'Nguyễn Thị Thu', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
+    id: 385, parentId: 382, generation: 9, childOrder: 2,
+    name: 'Lê Viết Quyến', title: 'Thứ hai', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ',
+    spouses: [{ name: 'Trần Thị Miên', role: 'Vợ chánh', note: 'Con gái Họ Trần ở xứ Hương Sơ' }],
+    bio: 'Con trai ông Lê Phước An.'
   },
-  { id: 261, parentId: 168, generation: 9, childOrder: 3, name: 'Lê Thị Minh Thư', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Gái' },
+  { id: 386, parentId: 382, generation: 9, childOrder: 3, name: 'Lê Thị Hạnh', title: 'Thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ', bio: 'Con gái ông Lê Phước An gả người Họ Lê ở xứ Hương Long.' },
   {
-    id: 262, parentId: 168, generation: 9, childOrder: 4,
-    name: 'Lê Viết Quang', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Gái',
-    spouses: [{ name: 'Trần Thị Ngọc', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
+    id: 387, parentId: 382, generation: 9, childOrder: 4,
+    name: 'Lê Viết Quang', title: 'Thứ ba', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ',
+    spouses: [{ name: 'Trương Thị Tuyết Nhung', role: 'Vợ chánh', note: 'Con gái Họ Trương ở xứ Kim Long' }],
+    bio: 'Con trai ông Lê Phước An.'
   },
-
-  // --- Các con ông Lê Viết Chuyên (id: 176) & bà Trần Thị Kiều Loan ---
-  { id: 263, parentId: 176, generation: 9, childOrder: 1, name: 'Lê Viết Khang', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Kiều Loan' },
-  { id: 264, parentId: 176, generation: 9, childOrder: 2, name: 'Lê Thị Khánh Vy', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Kiều Loan' },
-
-  // --- Các con ông Lê Viết Dũng (id: 178) & bà Nguyễn Thị Kim Thành ---
-  { id: 265, parentId: 178, generation: 9, childOrder: 1, name: 'Lê Viết Bảo', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Thành' },
-  { id: 266, parentId: 178, generation: 9, childOrder: 2, name: 'Lê Thị Bảo Trâm', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Kim Thành' },
-
-  // --- Các con ông Lê Viết Hưng (id: 181) & bà Trần Thị Lời ---
-  { id: 267, parentId: 181, generation: 9, childOrder: 1, name: 'Lê Thị Hồng Nhung', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lời' },
+  { id: 388, parentId: 382, generation: 9, childOrder: 5, name: 'Lê Thị Hiên', title: 'Thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ', bio: 'Con gái ông Lê Phước An gả người Họ Nguyễn ở xứ Hương Long.' },
   {
-    id: 268, parentId: 181, generation: 9, childOrder: 2,
-    name: 'Lê Viết Nam', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lời',
-    spouses: [{ name: 'Nguyễn Thị Hạnh', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
+    id: 389, parentId: 382, generation: 9, childOrder: 6,
+    name: 'Lê Viết Quyền', title: 'Thứ tư', gender: 'Nam',
+    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Sẻ',
+    spouses: [{ name: 'Mai Thị Hiền', role: 'Vợ chánh', note: 'Con gái Họ Mai ở xứ Kim Long' }],
+    bio: 'Con trai ông Lê Phước An.'
   },
-  { id: 269, parentId: 181, generation: 9, childOrder: 3, name: 'Lê Viết Hoàng', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lời' },
+  { id: 390, parentId: 382, generation: 9, childOrder: 7, name: 'Lê Thị Vô danh', title: 'Thứ ba', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Trần Thị Sẻ', bio: 'Con Vô danh ông Lê Phước An.' },
 
-  // --- Các con ông Lê Viết Thọ (id: 182) & bà Phan Thị Lợi ---
-  { id: 270, parentId: 182, generation: 9, childOrder: 1, name: 'Lê Thị Thu Hà', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lợi' },
-  {
-    id: 271, parentId: 182, generation: 9, childOrder: 2,
-    name: 'Lê Viết Hải', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lợi',
-    spouses: [{ name: 'Trần Thị Thanh', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 272, parentId: 182, generation: 9, childOrder: 3, name: 'Lê Viết Sơn', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lợi' },
-
-  // --- Các con ông Lê Viết Thanh (id: 183) & bà Lê Thị Thúy Vân ---
-  { id: 273, parentId: 183, generation: 9, childOrder: 1, name: 'Lê Viết Khoa', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Thúy Vân' },
-  { id: 274, parentId: 183, generation: 9, childOrder: 2, name: 'Lê Thị Vân Anh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Thúy Vân' },
-
-  // --- Các con ông Lê Viết Chánh (id: 185) & bà Trần Thị Thu Hương ---
-  { id: 275, parentId: 185, generation: 9, childOrder: 1, name: 'Lê Viết Đạt', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thu Hương' },
-  { id: 276, parentId: 185, generation: 9, childOrder: 2, name: 'Lê Thị Minh Anh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thu Hương' },
-
-  // --- Các con ông Lê Viết Trừng (id: 192) & bà Ngô Thị Rớt ---
-  {
-    id: 277, parentId: 192, generation: 9, childOrder: 1,
-    name: 'Lê Viết Thành', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Rớt',
-    spouses: [{ name: 'Nguyễn Thị Lệ', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 278, parentId: 192, generation: 9, childOrder: 2, name: 'Lê Thị Xuân', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Rớt' },
-
-  // --- Các con ông Lê Viết Thặng (id: 193) & bà Võ Thị Kiêm ---
-  {
-    id: 279, parentId: 193, generation: 9, childOrder: 1,
-    name: 'Lê Viết Thắng', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Kiêm',
-    spouses: [{ name: 'Trần Thị Dung', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 280, parentId: 193, generation: 9, childOrder: 2, name: 'Lê Thị Dung', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Võ Thị Kiêm' },
-  // --- Các con ông Lê Viết Kỉnh (id: 194) & bà Trần Thị Đằng ---
-  { id: 281, parentId: 194, generation: 9, childOrder: 1, name: 'Lê Thị Hoa', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng' },
-  {
-    id: 282, parentId: 194, generation: 9, childOrder: 2,
-    name: 'Lê Viết Tâm', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng',
-    spouses: [{ name: 'Nguyễn Thị Mai', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 283, parentId: 194, generation: 9, childOrder: 3, name: 'Lê Thị Lan', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Đằng' },
-
-  // --- Các con ông Lê Viết Cẩn (id: 197) & bà Nguyễn Thị Thuận ---
-  { id: 284, parentId: 197, generation: 9, childOrder: 1, name: 'Lê Thị Tuyết', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận' },
-  {
-    id: 285, parentId: 197, generation: 9, childOrder: 2,
-    name: 'Lê Viết Lộc', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận',
-    spouses: [{ name: 'Trần Thị Cúc', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-  { id: 286, parentId: 197, generation: 9, childOrder: 3, name: 'Lê Viết Thọ', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận' },
-  { id: 287, parentId: 197, generation: 9, childOrder: 4, name: 'Lê Thị Mỹ', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thuận' },
-
-  // --- Các con ông Lê Viết Triêm (id: 204) & bà Ngô Thị Vui ---
-  { id: 288, parentId: 204, generation: 9, childOrder: 1, name: 'Lê Thị Thu', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Vui' },
-  {
-    id: 289, parentId: 204, generation: 9, childOrder: 2,
-    name: 'Lê Viết Hòa', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Vui',
-    spouses: [{ name: 'Nguyễn Thị Lan', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 290, parentId: 204, generation: 9, childOrder: 3, name: 'Lê Thị Hồng', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Vui' },
-  {
-    id: 291, parentId: 204, generation: 9, childOrder: 4,
-    name: 'Lê Viết Bình', title: 'Con trai thứ hai', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Vui',
-    spouses: [{ name: 'Trần Thị Nga', role: 'Vợ chánh', note: 'Con gái Họ Trần ở làng' }]
-  },
-
-  // --- Các con ông Lê Viết Trạc (id: 209) & bà Nguyễn Thị Nậy ---
-  { id: 292, parentId: 209, generation: 9, childOrder: 1, name: 'Lê Thị Phượng', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nậy' },
-  {
-    id: 293, parentId: 209, generation: 9, childOrder: 2,
-    name: 'Lê Viết Thành', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nậy',
-    spouses: [{ name: 'Phan Thị Hoa', role: 'Vợ chánh', note: 'Con gái Họ Phan ở làng' }]
-  },
-  { id: 294, parentId: 209, generation: 9, childOrder: 3, name: 'Lê Viết Dũng', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nậy' },
-  { id: 295, parentId: 209, generation: 9, childOrder: 4, name: 'Lê Thị Hạnh', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Nậy' },
-
-  // --- Các con ông Lê Viết Trụ (id: 212) & bà Lê Thị Vui ---
-  { id: 296, parentId: 212, generation: 9, childOrder: 1, name: 'Lê Thị Thanh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Vui' },
-  {
-    id: 297, parentId: 212, generation: 9, childOrder: 2,
-    name: 'Lê Viết Hùng', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Vui',
-    spouses: [{ name: 'Nguyễn Thị Thảo', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 298, parentId: 212, generation: 9, childOrder: 3, name: 'Lê Viết Cường', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Vui' },
-  // --- Các con ông Lê Viết Khương (id: 214) & bà Nguyễn Thị Bê ---
-  { id: 299, parentId: 214, generation: 9, childOrder: 1, name: 'Lê Thị Xuân Vũ', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Bê' },
-  {
-    id: 300, parentId: 214, generation: 9, childOrder: 2,
-    name: 'Lê Viết Khôi', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Bê',
-    spouses: [{ name: 'Trần Thị Mỹ Linh', role: 'Vợ chánh' }]
-  },
-  { id: 301, parentId: 214, generation: 9, childOrder: 3, name: 'Lê Viết Nguyên', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Bê' },
-
-  // --- Các con ông Lê Viết Hoài (id: 216) & bà Nguyễn Thị Thu Hương ---
-  { id: 302, parentId: 216, generation: 9, childOrder: 1, name: 'Lê Thị Minh Châu', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thu Hương' },
-  { id: 303, parentId: 216, generation: 9, childOrder: 2, name: 'Lê Viết Hoàng Minh', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thu Hương' },
-
-  // --- Các con ông Lê Viết Đầy (id: 219) & bà Nguyễn Thị Xuyến ---
-  { id: 304, parentId: 219, generation: 9, childOrder: 1, name: 'Lê Thị Ngọc Ánh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuyến' },
-  { id: 305, parentId: 219, generation: 9, childOrder: 2, name: 'Lê Viết Bảo Toàn', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuyến' },
-  { id: 306, parentId: 219, generation: 9, childOrder: 3, name: 'Lê Viết Quốc Bảo', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Xuyến' },
-
-  // --- Các con ông Lê Viết Lầu (id: 220) & bà Nguyễn Thị Lan ---
-  { id: 307, parentId: 220, generation: 9, childOrder: 1, name: 'Lê Viết Trung Hiếu', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-  { id: 308, parentId: 220, generation: 9, childOrder: 2, name: 'Lê Thị Ngọc Trâm', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-
-  // --- Các con ông Lê Viết Thắng (id: 225) & bà Trần Thị Thê ---
-  { id: 309, parentId: 225, generation: 9, childOrder: 1, name: 'Lê Viết Thành Đạt', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thê' },
-  { id: 310, parentId: 225, generation: 9, childOrder: 2, name: 'Lê Thị Thanh Trúc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thê' },
-
-  // --- Các con ông Lê Viết Chánh (id: 231) & bà Nguyễn Thị Thủy ---
-  { id: 311, parentId: 231, generation: 9, childOrder: 1, name: 'Lê Viết Gia Huy', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thủy' },
-  { id: 312, parentId: 231, generation: 9, childOrder: 2, name: 'Lê Thị Gia Hân', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thủy' },
-
-  // --- Các con ông Lê Phước An (id: 233) & bà Phan Thị Lạng ---
-  { id: 313, parentId: 233, generation: 9, childOrder: 1, name: 'Lê Thị Sen', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lạng' },
-  {
-    id: 314, parentId: 233, generation: 9, childOrder: 2,
-    name: 'Lê Phước Lộc', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lạng',
-    spouses: [{ name: 'Nguyễn Thị Cúc', role: 'Vợ chánh', note: 'Con gái Họ Nguyễn ở làng' }]
-  },
-  { id: 315, parentId: 233, generation: 9, childOrder: 3, name: 'Lê Phước Thọ', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lạng' },
-  { id: 316, parentId: 233, generation: 9, childOrder: 4, name: 'Lê Thị Đào', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Lạng' },
-
-  // --- Các con ông Lê Phước Đống (id: 234) & bà Nguyễn Thị Quế ---
-  { id: 317, parentId: 234, generation: 9, childOrder: 1, name: 'Lê Thị Hương', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quế' },
-  {
-    id: 318, parentId: 234, generation: 9, childOrder: 2,
-    name: 'Lê Phước Toàn', title: 'Con trai thứ nhất', gender: 'Nam',
-    birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quế',
-    spouses: [{ name: 'Trần Thị Lan', role: 'Vợ chánh', note: 'Con gái Họ Trần làng Kim Long' }]
-  },
-  { id: 319, parentId: 234, generation: 9, childOrder: 3, name: 'Lê Phước Thịnh', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quế' },
-  { id: 320, parentId: 234, generation: 9, childOrder: 4, name: 'Lê Thị Thảo', title: 'Con gái thứ hai', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Quế' },
-  // ================= ĐỜI THỨ 10 =================
-  // --- Các con ông Lê Viết Trợ (id: 237) & bà Ngô Thị Em ---
-  { id: 321, parentId: 237, generation: 10, childOrder: 1, name: 'Lê Thị Ngọc Hân', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Em' },
-  { id: 322, parentId: 237, generation: 10, childOrder: 2, name: 'Lê Viết Minh Quân', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Em' },
-  { id: 323, parentId: 237, generation: 10, childOrder: 3, name: 'Lê Viết Minh Khôi', title: 'Con trai thứ hai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Ngô Thị Em' },
-
-  // --- Các con ông Lê Viết Tứ (id: 239) & bà Nguyễn Thị Em ---
-  { id: 324, parentId: 239, generation: 10, childOrder: 1, name: 'Lê Thị Thanh Tâm', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Em' },
-  { id: 325, parentId: 239, generation: 10, childOrder: 2, name: 'Lê Viết Đức Anh', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Em' },
-
-  // --- Các con ông Lê Viết Hòa (id: 242) & bà Trần Thị Thu ---
-  { id: 326, parentId: 242, generation: 10, childOrder: 1, name: 'Lê Viết Gia Bảo', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thu' },
-  { id: 327, parentId: 242, generation: 10, childOrder: 2, name: 'Lê Thị Gia Nghi', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thu' },
-
-  // --- Các con ông Lê Viết Hòa Hiệp (id: 243) & bà Lê Thị Lệ ---
-  { id: 328, parentId: 243, generation: 10, childOrder: 1, name: 'Lê Thị Bảo Ngọc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Lệ' },
-  { id: 329, parentId: 243, generation: 10, childOrder: 2, name: 'Lê Viết Thiên Ân', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Lê Thị Lệ' },
-
-  // --- Các con ông Lê Viết Thọ (id: 245) & bà Nguyễn Thị Lợi ---
-  { id: 330, parentId: 245, generation: 10, childOrder: 1, name: 'Lê Viết Hoàng Long', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lợi' },
-  { id: 331, parentId: 245, generation: 10, childOrder: 2, name: 'Lê Thị Khánh Linh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lợi' },
-
-  // --- Các con ông Lê Viết Phú (id: 247) & bà Trần Thị Hoa ---
-  { id: 332, parentId: 247, generation: 10, childOrder: 1, name: 'Lê Thị Quỳnh Như', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Hoa' },
-  { id: 333, parentId: 247, generation: 10, childOrder: 2, name: 'Lê Viết Anh Kiệt', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Hoa' },
-
-  // --- Các con ông Lê Viết Quý (id: 249) & bà Nguyễn Thị Lan ---
-  { id: 334, parentId: 249, generation: 10, childOrder: 1, name: 'Lê Viết Phúc An', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-  { id: 335, parentId: 249, generation: 10, childOrder: 2, name: 'Lê Thị An Nhiên', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-
-  // --- Các con ông Lê Viết Tuấn (id: 250) & bà Nguyễn Thị Hồng ---
-  { id: 336, parentId: 250, generation: 10, childOrder: 1, name: 'Lê Viết Đăng Khoa', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hồng' },
-  { id: 337, parentId: 250, generation: 10, childOrder: 2, name: 'Lê Thị Thảo Vy', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hồng' },
-
-  // --- Các con ông Lê Viết Hùng (id: 253) & bà Trần Thị Mai ---
-  { id: 338, parentId: 253, generation: 10, childOrder: 1, name: 'Lê Thị Ngọc Diệp', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mai' },
-  { id: 339, parentId: 253, generation: 10, childOrder: 2, name: 'Lê Viết Tuấn Kiệt', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mai' },
-
-  // --- Các con ông Lê Viết Liêu (id: 255) & bà Nguyễn Thị Hoa ---
-  { id: 340, parentId: 255, generation: 10, childOrder: 1, name: 'Lê Viết Nguyên Phong', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hoa' },
-  { id: 341, parentId: 255, generation: 10, childOrder: 2, name: 'Lê Thị Huyền Trang', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hoa' },
-
-  // --- Các con ông Lê Viết Lưu (id: 257) & bà Trần Thị Lan ---
-  { id: 342, parentId: 257, generation: 10, childOrder: 1, name: 'Lê Viết Nguyên Phong', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lan' },
-  { id: 343, parentId: 257, generation: 10, childOrder: 2, name: 'Lê Vô danh (1)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Trần Thị Lan' },
-  { id: 344, parentId: 257, generation: 10, childOrder: 3, name: 'Lê Vô danh (2)', title: 'Mất sớm', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Mất sớm', motherName: 'Trần Thị Lan' },
-
-  // --- Các con ông Lê Viết Minh (id: 260) & bà Nguyễn Thị Thu ---
-  { id: 345, parentId: 260, generation: 10, childOrder: 1, name: 'Lê Viết Minh Triết', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thu' },
-  { id: 346, parentId: 260, generation: 10, childOrder: 2, name: 'Lê Thị Minh Khuê', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thu' },
-
-  // --- Các con ông Lê Viết Quang (id: 262) & bà Trần Thị Ngọc ---
-  { id: 347, parentId: 262, generation: 10, childOrder: 1, name: 'Lê Thị Ngọc Hân', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ngọc' },
-  { id: 348, parentId: 262, generation: 10, childOrder: 2, name: 'Lê Viết Quang Huy', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Ngọc' },
-  // --- Các con ông Lê Viết Nam (id: 268) & bà Nguyễn Thị Hạnh ---
-  { id: 349, parentId: 268, generation: 10, childOrder: 1, name: 'Lê Viết Hoàng Nam', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hạnh' },
-  { id: 350, parentId: 268, generation: 10, childOrder: 2, name: 'Lê Thị Phương Thảo', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Hạnh' },
-
-  // --- Các con ông Lê Viết Hải (id: 271) & bà Trần Thị Thanh ---
-  { id: 351, parentId: 271, generation: 10, childOrder: 1, name: 'Lê Thị Thanh Trúc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thanh' },
-  { id: 352, parentId: 271, generation: 10, childOrder: 2, name: 'Lê Viết Hải Đăng', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Thanh' },
-
-  // --- Các con ông Lê Viết Thành (id: 277) & bà Nguyễn Thị Lệ ---
-  { id: 353, parentId: 277, generation: 10, childOrder: 1, name: 'Lê Viết Thành Công', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lệ' },
-  { id: 354, parentId: 277, generation: 10, childOrder: 2, name: 'Lê Thị Lệ Quyên', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lệ' },
-
-  // --- Các con ông Lê Viết Thắng (id: 279) & bà Trần Thị Dung ---
-  { id: 355, parentId: 279, generation: 10, childOrder: 1, name: 'Lê Thị Thùy Dung', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Dung' },
-  { id: 356, parentId: 279, generation: 10, childOrder: 2, name: 'Lê Viết Quyết Thắng', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Dung' },
-
-  // --- Các con ông Lê Viết Tâm (id: 282) & bà Nguyễn Thị Mai ---
-  { id: 357, parentId: 282, generation: 10, childOrder: 1, name: 'Lê Viết Minh Tâm', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Mai' },
-  { id: 358, parentId: 282, generation: 10, childOrder: 2, name: 'Lê Thị Ngọc Mai', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Mai' },
-
-  // --- Các con ông Lê Viết Lộc (id: 285) & bà Trần Thị Cúc ---
-  { id: 359, parentId: 285, generation: 10, childOrder: 1, name: 'Lê Viết Tấn Lộc', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Cúc' },
-  { id: 360, parentId: 285, generation: 10, childOrder: 2, name: 'Lê Thị Kim Cúc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Cúc' },
-
-  // --- Các con ông Lê Viết Hòa (id: 289) & bà Nguyễn Thị Lan ---
-  { id: 361, parentId: 289, generation: 10, childOrder: 1, name: 'Lê Thị Lan Anh', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-  { id: 362, parentId: 289, generation: 10, childOrder: 2, name: 'Lê Viết Thái Hòa', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Lan' },
-
-  // --- Các con ông Lê Viết Bình (id: 291) & bà Trần Thị Nga ---
-  { id: 363, parentId: 291, generation: 10, childOrder: 1, name: 'Lê Viết Thanh Bình', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nga' },
-  { id: 364, parentId: 291, generation: 10, childOrder: 2, name: 'Lê Thị Quỳnh Nga', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Nga' },
-
-  // --- Các con ông Lê Viết Thành (id: 293) & bà Phan Thị Hoa ---
-  { id: 365, parentId: 293, generation: 10, childOrder: 1, name: 'Lê Thị Thanh Hoa', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hoa' },
-  { id: 366, parentId: 293, generation: 10, childOrder: 2, name: 'Lê Viết Trung Thành', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Phan Thị Hoa' },
-
-  // --- Các con ông Lê Viết Hùng (id: 297) & bà Nguyễn Thị Thảo ---
-  { id: 367, parentId: 297, generation: 10, childOrder: 1, name: 'Lê Viết Mạnh Hùng', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thảo' },
-  { id: 368, parentId: 297, generation: 10, childOrder: 2, name: 'Lê Thị Phương Thảo', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Thảo' },
-
-  // --- Các con ông Lê Viết Khôi (id: 300) & bà Trần Thị Mỹ Linh ---
-  { id: 369, parentId: 300, generation: 10, childOrder: 1, name: 'Lê Viết Minh Khôi', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Mỹ Linh' },
-
-  // --- Các con ông Lê Phước Lộc (id: 314) & bà Nguyễn Thị Cúc ---
-  { id: 370, parentId: 314, generation: 10, childOrder: 1, name: 'Lê Phước Phúc', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cúc' },
-  { id: 371, parentId: 314, generation: 10, childOrder: 2, name: 'Lê Thị Ngọc Cúc', title: 'Con gái thứ nhất', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Cúc' },
-
-  // --- Con ông Lê Phước Toàn (id: 318) & bà Trần Thị Lan ---
-  { id: 372, parentId: 318, generation: 10, childOrder: 1, name: 'Lê Phước Thịnh Đạt', title: 'Con trai thứ nhất', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Lan' }
+  // --- Đời thứ 10: Hậu duệ nhánh ông Lê Phước Hành ---
+  { id: 391, parentId: 384, generation: 10, childOrder: 1, name: 'Lê Viết Quân', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đẩu' },
+  { id: 392, parentId: 384, generation: 10, childOrder: 2, name: 'Lê Viết Quý', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đẩu' },
+  { id: 393, parentId: 384, generation: 10, childOrder: 3, name: 'Lê Nguyễn Nhã Uyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đẩu' },
+  { id: 394, parentId: 384, generation: 10, childOrder: 4, name: 'Lê Nguyễn Kim Uyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Nguyễn Thị Đẩu' },
+  { id: 395, parentId: 385, generation: 10, childOrder: 1, name: 'Lê Thị Quyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 396, parentId: 385, generation: 10, childOrder: 2, name: 'Lê Thị Ngọc Diệp', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 397, parentId: 385, generation: 10, childOrder: 3, name: 'Lê Thị Mỹ Tiên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 398, parentId: 385, generation: 10, childOrder: 4, name: 'Lê Viết Quốc', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 399, parentId: 385, generation: 10, childOrder: 5, name: 'Lê Thị Mỹ Duyên', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 400, parentId: 385, generation: 10, childOrder: 6, name: 'Lê Thị Mỹ Quý', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trần Thị Miên' },
+  { id: 401, parentId: 387, generation: 10, childOrder: 1, name: 'Lê Thị Tuyết Lan', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Tuyết Nhung' },
+  { id: 402, parentId: 387, generation: 10, childOrder: 2, name: 'Lê Viết Quyết', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Tuyết Nhung' },
+  { id: 403, parentId: 387, generation: 10, childOrder: 3, name: 'Lê Thị Kim Quy', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Trương Thị Tuyết Nhung' },
+  { id: 404, parentId: 389, generation: 10, childOrder: 1, name: 'Lê Viết Minh Quảng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Mai Thị Hiền' },
+  { id: 405, parentId: 389, generation: 10, childOrder: 2, name: 'Lê Thị Hảo', title: 'Con gái', gender: 'Nữ', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Mai Thị Hiền' },
+  { id: 406, parentId: 389, generation: 10, childOrder: 3, name: 'Lê Viết Minh Hoàng', title: 'Con trai', gender: 'Nam', birthYear: 'Chưa rõ', deathDate: 'Chưa rõ', motherName: 'Mai Thị Hiền' }
 ];
